@@ -15,7 +15,7 @@ var esp8266_nsp = io.of('/esp8266')				//namespace của esp8266
 
 var bodyParser     = require('body-parser');
 var middleware = require('socketio-wildcard')();		//Để có thể bắt toàn bộ lệnh!
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 server.listen(process.env.PORT || PORT);
 
@@ -42,7 +42,7 @@ webapp_nsp.use(middleware);									//Khi webapp emit bất kỳ lệnh gì lên
 
 //######################################--DATABASE--#####################################################################
 mongoose.Promise = global.Promise;
-const mongoURL = 'mongodb+srv://root:Password0@cluster0-bwm3m.mongodb.net/retryWrites=true';
+var mongoURL = 'mongodb+srv://root:Password0@cluster0-bwm3m.mongodb.net/retryWrites=true';
 mongoose.connect(mongoURL, { useNewUrlParser: true } );
 var Device = require('./models/deviceModel');
 
@@ -107,6 +107,7 @@ webapp_nsp.on('connection', function(socket) {
 
 
 //##################################--API--#########################################################################
+
 app.get('/api', (req, res) => {
 	var json = {
 		"b": "{1,1}"
