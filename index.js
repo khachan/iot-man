@@ -151,7 +151,7 @@ app.delete('/api', (req, res) => {
 });
 
 var controlLed = function(data){
-	console.lod("Led state: " + data)
+	console.log("Led state: " + data)
   io.emit("LED", {"b" : data});
 }
 
