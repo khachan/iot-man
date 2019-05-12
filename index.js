@@ -134,7 +134,12 @@ app.put('/api', (req, res) => {
         res.send(err);
       }
       if(devices.length){
-      	controlLed([param[1], devices[0].value]);
+      	if(param[0] == 0){
+      		controlLed([param[1], devices[0].value]);
+      	}else{
+      		controlLed(devices[0].value, [param[1]]);
+      	}
+      	
       }
       res.json(devices);
   });
@@ -146,6 +151,7 @@ app.delete('/api', (req, res) => {
 });
 
 var controlLed = function(data){
+	console.lod("Led state: " + data)
   io.emit("LED", {"b" : data});
 }
 
