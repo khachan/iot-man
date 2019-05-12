@@ -137,7 +137,7 @@ app.put('/api', (req, res) => {
       	if(param[0] == 0){
       		controlLed([param[1], devices[0].value]);
       	}else{
-      		controlLed(devices[0].value, [param[1]]);
+      		controlLed([devices[0].value, param[1]]);
       	}
       	
       }
