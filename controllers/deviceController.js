@@ -1,10 +1,13 @@
 var mongoose = require('mongoose');
 var Device = mongoose.model('Device');
+var DeviceHistory = mongoose.model('DeviceHistory');
 
 //Get all devices
 exports.getDevices = function(req, res){
   var sortByName = {name: 1};
-    Device.find({}, function(err, devices) {
+    var param = req.params.name ? req.params : {} ;
+    req.body["isDeleted"] = false;
+    Device.find(req.body, function(err, devices) {
       if (err){
         res.send(err);
       }
@@ -14,7 +17,7 @@ exports.getDevices = function(req, res){
 
 //Get device by Id
 exports.getDevice = function(req, res){
-    Device.findById({_id : req.params.deviceId}, function(err, device) {
+    Device.findById({_id : req.params.deviceId, isDeleted : false}, function(err, device) {
       if (err){
         res.send(err);
       }
@@ -25,11 +28,14 @@ exports.getDevice = function(req, res){
 //Create new device
 exports.addDevice = function(req, res){
   var newDevice = new Device(req.body);
-  Object.assign(newDevice, {createTime: Date.now()});
+  newDevice["createTime"] = Date.now();
+  newDevice["isDeleted"] = false;
+  console.log("New Device: " + newDevice);
   newDevice.save(function(err, device) {
     if (err){
       res.send(err);
     }
+    updateHistory(device);
     res.json(device);
   });
 };
@@ -44,6 +50,7 @@ exports.updateById = function(req, res){
       if (err){
         res.send(err);
       }
+      updateHistory(device);
       res.json(device);
    });
 };
@@ -55,32 +62,60 @@ exports.updateByName = function(req, res){
       if (err){
         res.send(err);
       }
+      updateHistory(device);
       res.json(device);
    });
 };
 
 //Delete device by name
 exports.deleteByName = function(req, res){
-    Device.remove({
+    Device.findOneAndUpdate({
       name: req.body.name
-    }, function(err, device) {
-      if (err)
+    }
+    , {isDeleted: true}
+    , function(err, device) {
+      if (err){
         res.send(err);
-      res.json({ message: 'Device successfully deleted' });
+      }
+      updateHistory(device);
+      res.json({ message: 'Device successfully deleted ' +  device});
     });
 };
 
 //Delete device by Id
 exports.deleteById = function(req, res){
-    Device.findOneAndDelete({
-      _id: req.params.deviceId
-    }, function(err, device) {
-      if (err)
+    Device.findOneAndUpdate({
+      _id: req.params.deviceId, isDeleted: true
+    }
+    , {isDeleted: true}
+    , {new: true}
+    , function(err, device) {
+      if (err){
         res.send(err);
-      res.json({ message: 'Device successfully deleted' });
+      }
+      updateHistory(device);
+      res.json({ message: 'Device successfully deleted ' + device });
     });
 };
 
+var updateHistory =  function(device){
+  if(device == undefined || device == null){
+      console.log("Device is empty");
+      return;
+  }
+
+  var deviceHistory = new DeviceHistory();
+  deviceHistory.deviceId = device._id;
+  deviceHistory.value = device.value;
+  deviceHistory.updateTime = device.updateTime;
+  deviceHistory.save(function(err, history) {
+      if (err){
+        console.log("History device error: " + err);
+      }else{
+        console.log("New history device: " + history);
+      }
+  });
+}
 
 // UserModel.find()                   // find all users
 //          .skip(100)                // skip the first 100 items

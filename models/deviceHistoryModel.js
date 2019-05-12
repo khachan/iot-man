@@ -1,16 +1,15 @@
 var mongoose = require('mongoose');
 
-var deviceSchema = new mongoose.Schema({
-    name: {type: String, required: true, max: 100},
+var deviceHistorySchema = new mongoose.Schema({
+    deviceId: {type: String, required: true, max: 100},
     value: {type: Number, required: true},
-    isDeleted : {type: Boolean},
-    createTime : {type: Date},
-    updateTime : {type: Date, default: Date.now}
+    isDeleted: {type: Boolean},
+    updateTime : {type: Date}
 });
 
-var Device  = mongoose.model('Device', deviceSchema);
+var DeviceHistory  = mongoose.model('DeviceHistory', deviceHistorySchema);
 
-module.exports = Device;
+module.exports = DeviceHistory;
 
 
 // UserModel.find()                   // find all users

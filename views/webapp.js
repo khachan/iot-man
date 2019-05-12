@@ -16,10 +16,12 @@ angular.module('myApp', [
 	return mySocket;
 	
 /////////////////////// Những dòng code ở trên phần này là phần cài đặt, các bạn hãy đọc thêm về angularjs để hiểu, cái này không nhảy cóc được nha!
-}).controller('Home', function($scope, $parse, mySocket) {
+}).controller('Home', function($scope, $parse, mySocket, $http) {
 	////Khu 1 -- Khu cài đặt tham số 
     //cài đặt một số tham số test chơi
 	//dùng để đặt các giá trị mặc định
+	$scope.url = "https://iot-man.herokuapp.com/api/device"
+	// $scope.url = "http://172.20.10.5:3484/api/device"
     $scope.CamBienMua = "Chưa có thông tin cập nhật";
     $scope.leds_status = [1, 1]
 	$scope.lcd = ["", ""]
@@ -55,8 +57,21 @@ angular.module('myApp', [
 	////Khu 2 -- Cài đặt các sự kiện khi tương tác với người dùng
 	//các sự kiện ng-click, nhấn nút
 	$scope.updateSensor  = function() {
+		var led1 = {"name" : "Led 1", "value" : $scope.leds_status[0]};
+		$scope.updateDevice(led1);
+		var led2 = {"name" : "Led 2", "value" : $scope.leds_status[1]};
+		$scope.updateDevice(led2);
 		mySocket.emit("RAIN")
 	}
+
+	$scope.updateDevice = function(data){
+		$http.put($scope.url, data)
+	        .then(function(response){
+               	console.log(response.data);
+            }, function(response){
+                console.log("Unable to perform get request");
+        });
+	};
 	
 	$scope.setValue = function(strVar, value) {
 		var model = $parse(strVar)
@@ -75,6 +90,7 @@ angular.module('myApp', [
 
 		//Cách gửi tham số 1: dùng biến toàn cục! $scope.<tên biến> là biến toàn cục
 	$scope.updateLED = function() {
+
 		mySocket.emit("LED")
 	}
 	
@@ -114,8 +130,12 @@ angular.module('myApp', [
 	//Khi nhận được lệnh LED_STATUS
 	mySocket.on('LED_STATUS', function(json) {
 		//Nhận được thì in ra thôi hihi.
-		console.log("recv LED", json)
+		console.log("recv LED", json);
 		$scope.leds_status = json.b
+		var led1 = {"name" : "Led 1", "value" : $scope.leds_status[0]};
+		$scope.updateDevice(led1);
+		var led2 = {"name" : "Led 2", "value" : $scope.leds_status[1]};
+		$scope.updateDevice(led2);
 	})
 	//khi nhận được lệnh Button
 	mySocket.on('BUTTON', function(json) {
@@ -133,6 +153,6 @@ angular.module('myApp', [
 		$scope.updateServo(0) //Servo quay về góc 0 độ!. Dùng cách 2 
 	})
 
-	
-		
+
+
 });

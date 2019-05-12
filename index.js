@@ -38,13 +38,18 @@ app.use(bodyParser.json());
 esp8266_nsp.use(middleware);									//Khi esp8266 emit bất kỳ lệnh gì lên thì sẽ bị bắt
 webapp_nsp.use(middleware);									//Khi webapp emit bất kỳ lệnh gì lên thì sẽ bị bắt
 
-
+app.use(function (req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
 
 //######################################--DATABASE--#####################################################################
 mongoose.Promise = global.Promise;
 var mongoURL = 'mongodb+srv://root:Password0@cluster0-bwm3m.mongodb.net/retryWrites=true';
 mongoose.connect(mongoURL, { useNewUrlParser: true } );
 var Device = require('./models/deviceModel');
+var DeviceHistory = require('./models/deviceHistoryModel');
 
 
 
@@ -113,8 +118,8 @@ app.get('/api', (req, res) => {
 		"b": "{1,1}"
 	}
 	console.log("send LED ", json['b'])
-	io.emit("LED", json)
-  	return res.send(json['b']);
+	//io.emit("LED", json)
+  	return res.send(json);
 });
 
 app.post('/api', (req, res) => {
@@ -122,11 +127,17 @@ app.post('/api', (req, res) => {
 });
 
 app.put('/api', (req, res) => {
- var json = {
-	"b": req.body
-  }
-  io.emit("LED", json);
-  return res.send("Success: " + req.body);
+ var param = req.body;
+ var data = {"name": "Led " + (2  - param[0])};
+ Device.find(data, function(err, devices) {
+      if (err){
+        res.send(err);
+      }
+      if(devices.length){
+      	controlLed([param[1], devices[0].value]);
+      }
+      res.json(devices);
+  });
 });
 
 app.delete('/api', (req, res) => {
@@ -134,6 +145,9 @@ app.delete('/api', (req, res) => {
   return res.send('Received a DELETE HTTP method');
 });
 
+var controlLed = function(data){
+  io.emit("LED", {"b" : data});
+}
 
 
 
