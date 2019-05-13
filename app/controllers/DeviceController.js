@@ -1,9 +1,13 @@
+
 var mongoose = require('mongoose');
-var Device = mongoose.model('Device');
-var DeviceHistory = mongoose.model('DeviceHistory');
+var Device = require('../models/deviceModel');
+var DeviceHistory = require('../models/deviceHistoryModel');
+
+// var Device = mongoose.model('Device');
+// var DeviceHistory = mongoose.model('DeviceHistory');
 
 //Get all devices
-exports.getDevices = function(req, res){
+exports.getDevices = function(req, res, next){
   var sortByName = {name: 1};
     var param = req.params.name ? req.params : {} ;
     req.body["isDeleted"] = false;
@@ -16,7 +20,7 @@ exports.getDevices = function(req, res){
 };
 
 //Get device by Id
-exports.getDevice = function(req, res){
+exports.getDevice = function(req, res, next){
     Device.findById({_id : req.params.deviceId, isDeleted : false}, function(err, device) {
       if (err){
         res.send(err);
@@ -26,7 +30,7 @@ exports.getDevice = function(req, res){
 };
 
 //Create new device
-exports.addDevice = function(req, res){
+exports.addDevice = function(req, res, next){
   var newDevice = new Device(req.body);
   newDevice["createTime"] = Date.now();
   newDevice["isDeleted"] = false;
@@ -42,7 +46,7 @@ exports.addDevice = function(req, res){
 
 
 //Update by id
-exports.updateById = function(req, res){
+exports.updateById = function(req, res, next){
   var updateDevice = req.body;
   Device.findOneAndUpdate({
       _id: req.params.deviceId
@@ -56,7 +60,7 @@ exports.updateById = function(req, res){
 };
 
 //Update by name
-exports.updateByName = function(req, res){
+exports.updateByName = function(req, res, next){
   var updateDevice = req.body;
   Device.findOneAndUpdate({name: req.body.name}, updateDevice, {new: true}, function(err, device) {
       if (err){
@@ -68,7 +72,7 @@ exports.updateByName = function(req, res){
 };
 
 //Delete device by name
-exports.deleteByName = function(req, res){
+exports.deleteByName = function(req, res, next){
     Device.findOneAndUpdate({
       name: req.body.name
     }
@@ -83,7 +87,7 @@ exports.deleteByName = function(req, res){
 };
 
 //Delete device by Id
-exports.deleteById = function(req, res){
+exports.deleteById = function(req, res, next){
     Device.findOneAndUpdate({
       _id: req.params.deviceId, isDeleted: true
     }
