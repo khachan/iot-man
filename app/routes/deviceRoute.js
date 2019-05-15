@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var deviceController = require('../controllers/deviceController');
+var deviceController = require('../controllers/DeviceController');
 var VerifyToken = require('../controllers/VerifyToken');
 
 // middleware that is specific to this router
