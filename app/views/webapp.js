@@ -3,22 +3,7 @@ angular.module('myApp', [
     'mobile-angular-ui',
 	'btford.socket-io'
 ]).config(function($routeProvider) {
-    $routeProvider.when('/', {
-        templateUrl: 'home.html',
-        controller: 'Home'
-    }).when('/lights', {
-        templateUrl: 'lights.html',
-        controller: 'Home'
-    }).when('/climate', {
-        templateUrl: 'climate.html',
-        controller: 'Home'
-    }).when('/cameras', {
-        templateUrl: 'cameras.html',
-        controller: 'Home'
-    }).when('/appliances', {
-        templateUrl: 'appliances.html',
-        controller: 'Home'
-    });
+
 }).factory('mySocket', function (socketFactory) {
 	var myIoSocket = io.connect('/webapp');	//Tên namespace webapp
 
@@ -34,7 +19,7 @@ angular.module('myApp', [
 	//dùng để đặt các giá trị mặc định
 	$scope.url = "https://iot-man.herokuapp.com/api/device"
 	// $scope.url = "http://172.20.10.5:3484/api/device"
-    $scope.CamBienMua = "Chưa có thông tin cập nhật";
+    $scope.CamBienMua = 10;
     $scope.leds_status = [1, 1]
 	$scope.lcd = ["", ""]
 	$scope.servoPosition = 0

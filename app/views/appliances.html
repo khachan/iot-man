@@ -1,160 +1,376 @@
-<div class="row">
-  <!-- Appliances  START -->
-  <div class="col-sm-12 col-md-6">
-    <!-- Washing machine  START -->
-    <div class="card active" data-unit="wash-machine">
-      <ul class="list-group borderless">
-        <li class="list-group-item align-items-center">
-          <svg class="icon-sprite icon-1x">
-            <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
-            <use xlink:href="assets/images/icons-sprite.svg#wash-machine"></use>
-          </svg>
-          <h5>Washing machine</h5>
-          <p class="ml-auto status">ON</p>
-        </li>
-      </ul>
-      <div class="only-if-active">
-        <hr class="my-0">
-        <ul class="list-group borderless px-1">
-          <li class="list-group-item pb-0">
-            <p class="specs">Program</p>
-            <p class="ml-auto mb-0 text-primary">Cotton Quick</p>
-          </li>
-          <li class="list-group-item pb-0">
-            <p class="specs">Weight</p>
-            <p class="ml-auto mb-0 text-primary">10.5 lb <small class="text-muted">(4.76 kg)</small></p>
-          </li>
-          <li class="list-group-item">
-            <p class="specs">Remaining time</p>
-            <p id="wash-machine" class="ml-auto mb-0">00:01:00</p>
-          </li>
-          <li class="list-group-item pb-4 timer-controls" data-controls="wash-machine">
-            <button data-action="pause" type="button" class="btn btn-secondary btn-block wash-control" style="display: block;">Pause</button>
-            <button data-action="resume" type="button" class="btn btn-primary btn-block mt-0 wash-control">Resume</button>
-          </li>
-        </ul>
+<!DOCTYPE html>
+<!-- saved from url=(0045)./appliances.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mẫn Hoàng">
+
+  <title>Ngôi Nhà IOT</title>
+
+  <!-- Bootstrap core CSS with custom theme variables + Additional theme styles -->
+    <link href="../assets/css/iot-theme-bundle.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div id="iot-preloader">
+    <div class="center-preloader d-flex align-items-center">
+      <div class="spinners">
+        <div class="spinner01"></div>
+        <div class="spinner02"></div>
       </div>
     </div>
-    <!-- Washing machine  END -->
   </div>
-  <div class="col-sm-12 col-md-6">
-    <!-- Fridge  START -->
-    <div class="card active" data-unit="home-fridge">
-      <ul class="list-group borderless">
-        <li class="list-group-item align-items-center">
-          <svg class="icon-sprite icon-1x">
-            <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
-            <use xlink:href="assets/images/icons-sprite.svg#home-fridge"></use>
-          </svg>
-          <h5>Fridge</h5>
-          <p class="ml-auto status">ON</p>
-        </li>
-      </ul>
-      <hr class="my-0">
-      <div class="d-flex justify-content-between" data-rangeslider="fridge-temp">
-        <ul class="list-group borderless px-1 align-items-stretch">
-          <li class="list-group-item">
-            <p class="specs mr-auto mb-auto">Temperature</p>
-          </li>
-          <li class="list-group-item d-flex flex-column pb-4">
-            <p class="mr-auto mt-2 mb-0 display-5">
-              <span id="fridge-temp-F">35</span><sup>°F</sup>
-            </p>
-            <p class="mr-auto mt-2 mb-0 lead text-primary">
-              <span id="fridge-temp-C">1.67</span><sup>°C</sup>
-            </p>
-          </li>
-        </ul>
-        <div class="p-4" style="position:relative;">
-          <input id="fridge-temp" type="range" min="33.8" max="39.2" step="0.1" value="35" data-orientation="vertical" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
-          <div class="info-holder info-lc">
-            <div data-toggle="popover-all" data-content="jQuery range slider using localStorage to remember the last status." data-original-title="Temperature control" data-placement="left" data-offset="0 -12px"></div>
+
+  <!-- Alerts Modal -->
+  <div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="Alerts" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="alert alert-danger alert-dismissible fade show border-0" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button> Security SW update available
+          </div>
+          <div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button> New device recognized
+          </div>
+          <div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button> User profile is not complete
           </div>
         </div>
       </div>
     </div>
-    <!-- Fridge  END -->
+    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
   </div>
-  <div class="col-sm-12 col-md-6">
-    <!-- TV1  START -->
-    <div class="card active" data-unit="tv-lcd-1">
-      <ul class="list-group borderless">
-        <li class="list-group-item align-items-center">
-          <svg class="icon-sprite icon-1x">
-            <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
-            <use xlink:href="assets/images/icons-sprite.svg#tv-lcd"></use>
-          </svg>
-          <h5>TV</h5>
-          <p class="ml-auto status">ON</p>
-        </li>
-      </ul>
-      <hr class="my-0">
-      <ul class="list-group borderless px-1">
-        <li class="list-group-item pb-0">
-          <p class="specs">Channel</p>
-          <p class="ml-auto mb-0 text-primary">Kids TV24</p>
-        </li>
-        <li class="list-group-item pb-4">
-          <p class="specs">Recording</p>
-          <p class="ml-auto mb-0 text-primary text-off">OFF</p>
-        </li>
-      </ul>
-    </div>
-    <!-- TV1  END -->
-  </div>
-  <div class="col-sm-12 col-md-6">
-    <!-- TV2  START -->
-    <div class="card active" data-unit="tv-lcd-2">
-      <!-- TV2 switch START -->
-      <ul class="list-group borderless">
-        <li class="list-group-item align-items-center">
-          <svg class="icon-sprite icon-1x">
-            <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
-            <use xlink:href="assets/images/icons-sprite.svg#tv-lcd"></use>
-          </svg>
-          <h5>TV</h5>
-          <label class="switch ml-auto checked">
-            <input type="checkbox" id="tv-lcd-2" checked="">
-          </label>
-        </li>
-      </ul>
-      <!-- TV2 switch END -->
-      <div class="only-if-active">
-        <hr class="my-0">
-        <ul class="list-group borderless px-1">
-          <li class="list-group-item pb-0">
-            <p class="specs">Channel</p>
-            <p class="ml-auto mb-0 text-primary">Kids TV24</p>
-          </li>
-          <li class="list-group-item pb-0">
-            <p class="specs">Recording</p>
-            <div class="btn-group btn-group-toggle ml-auto py-1" data-toggle="buttons">
-              <label class="btn btn-label btn-sm mb-0">
-                <input type="radio" name="options" id="c1-nv-on" autocomplete="off"> ON
-              </label>
-              <label class="btn btn-label btn-sm mb-0 active">
-                <input type="radio" name="options" id="c1-nv-off" autocomplete="off" checked=""> OFF
-              </label>
-            </div>
-          </li>
-        </ul>
-        <!-- Volume control - range slider START -->
-        <ul class="list-group borderless px-1" data-rangeslider="tv-volume-1">
-          <li class="list-group-item">
-            <p class="specs">Volume</p>
-            <p class="ml-auto mb-0"><span class="range-output">45</span>%</p>
-          </li>
-          <li class="list-group-item pt-0 pb-4">
-            <input id="tv-volume-1" class="volume" type="range" min="0" max="100" value="45" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
-          </li>
-        </ul>
-        <!-- Volume control - range slider END -->
-      </div>
-    </div>
-    <!-- TV2  END -->
-  </div>
-  <!-- Appliances  END -->
 
+  <!-- Alarm Modal -->
+  <div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="ALARM" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" data-dismiss="modal">
+        <div class="modal-body d-flex">
+          <svg class="icon-sprite icon-2x icon-pulse"><use xlink:href="assets/images/icons-sprite.svg#alarm"></use></svg>
+          <h3 class="text-right font-weight-bold ml-auto align-self-center">MOTION DETECTED!</h3>
+        </div>
+      </div>
+      <p class="mt-2 text-center text-danger">Click the red area to accept/close message</p>
+    </div>
+  </div>
+
+  <!-- Wrapper START -->
+  <div id="wrapper" class="">
+    <!-- Top navbar START -->
+    <nav class="navbar navbar-expand fixed-top d-flex flex-row justify-content-start">
+			<div class="d-none d-lg-block">
+				<form>
+					<div id="menu-minifier">
+						<label>
+							<svg width="32" height="32" viewBox="0 0 32 32">
+								<rect x="2" y="8" width="4" height="3" class="menu-dots"></rect>
+								<rect x="2" y="15" width="4" height="3" class="menu-dots"></rect>
+								<rect x="2" y="22" width="4" height="3" class="menu-dots"></rect>
+								<rect x="8" y="8" width="21" height="3" class="menu-lines"></rect>
+								<rect x="8" y="15" width="21" height="3" class="menu-lines"></rect>
+								<rect x="8" y="22" width="21" height="3" class="menu-lines"></rect>
+							</svg>
+							<input id="minifier" type="checkbox"> 
+						</label>
+						<div class="info-holder info-rb">
+							<div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Side menu narrowing" data-placement="right"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<a class="navbar-brand px-lg-3 px-1 mr-0" href="./appliances.html#">SMART family</a>
+			<div class="ml-auto">
+				<div class="navbar-nav flex-row navbar-icons">
+					<div class="nav-item">
+						<button id="alerts-toggler" class="btn btn-link nav-link" title="Alerts" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
+							<svg class="icon-sprite">
+								<use xlink:href="assets/images/icons-sprite.svg#alert"></use>
+								<svg class="text-danger"><use class="icon-dot" xlink:href="assets/images/icons-sprite.svg#icon-dot"></use></svg>
+							</svg>
+						</button>
+					</div>
+					<div id="user-menu" class="nav-item dropdown">
+						<button class="btn btn-link nav-link dropdown-toggle" title="User" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#user"></use></svg>
+						</button>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="./profile.html">Profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="./login.html">Logout</a>
+						</div>
+					</div>
+					<div class="nav-item d-lg-none">
+						<button id="sidebar-toggler" type="button" class="btn btn-link nav-link" data-toggle="offcanvas">
+						  <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#menu"></use></svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+    <!-- Top navbar END -->
+    <!-- wrapper-offcanvas START -->
+    <div class="wrapper-offcanvas">
+      <!-- row-offcanvas START -->
+      <div class="row-offcanvas row-offcanvas-left">
+        <!-- Side menu START -->
+        <div id="sidebar" class="sidebar-offcanvas">
+          <ul class="nav flex-column nav-sidebar">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./lights.html">
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg> Lights
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cameras.html">
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg> Cameras
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link active" href="./appliances.html">
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg> Appliances
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./climate.html">
+				<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span>Climate</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="./appliances.html#">
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg> Settings
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Side menu END -->
+        <!-- Main content START -->
+        <div id="main">
+          <div class="container-fluid">
+            <div class="row">
+              <!-- Appliances  START -->
+              <div class="col-sm-12 col-md-6">
+                <!-- Washing machine  START -->
+                <div class="card active" data-unit="wash-machine">
+                  <ul class="list-group borderless">
+                    <li class="list-group-item align-items-center">
+                      <svg class="icon-sprite icon-1x">
+                        <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
+                        <use xlink:href="assets/images/icons-sprite.svg#wash-machine"></use>
+                      </svg>
+                      <h5>Washing machine</h5>
+                      <p class="ml-auto status">ON</p>
+                    </li>
+                  </ul>
+                  <div class="only-if-active">
+                    <hr class="my-0">
+                    <ul class="list-group borderless px-1">
+                      <li class="list-group-item pb-0">
+                        <p class="specs">Program</p>
+                        <p class="ml-auto mb-0 text-primary">Cotton Quick</p>
+                      </li>
+                      <li class="list-group-item pb-0">
+                        <p class="specs">Weight</p>
+                        <p class="ml-auto mb-0 text-primary">10.5 lb <small class="text-muted">(4.76 kg)</small></p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="specs">Remaining time</p>
+                        <p id="wash-machine" class="ml-auto mb-0">00:01:00</p>
+                      </li>
+                      <li class="list-group-item pb-4 timer-controls" data-controls="wash-machine">
+                        <button data-action="pause" type="button" class="btn btn-secondary btn-block wash-control" style="display: block;">Pause</button>
+                        <button data-action="resume" type="button" class="btn btn-primary btn-block mt-0 wash-control">Resume</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- Washing machine  END -->
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Fridge  START -->
+                <div class="card active" data-unit="home-fridge">
+                  <ul class="list-group borderless">
+                    <li class="list-group-item align-items-center">
+                      <svg class="icon-sprite icon-1x">
+                        <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
+                        <use xlink:href="assets/images/icons-sprite.svg#home-fridge"></use>
+                      </svg>
+                      <h5>Fridge</h5>
+                      <p class="ml-auto status">ON</p>
+                    </li>
+                  </ul>
+                  <hr class="my-0">
+                  <div class="d-flex justify-content-between" data-rangeslider="fridge-temp">
+                    <ul class="list-group borderless px-1 align-items-stretch">
+                      <li class="list-group-item">
+                        <p class="specs mr-auto mb-auto">Temperature</p>
+                      </li>
+                      <li class="list-group-item d-flex flex-column pb-4">
+                        <p class="mr-auto mt-2 mb-0 display-5">
+                          <span id="fridge-temp-F">35</span><sup>°F</sup>
+                        </p>
+                        <p class="mr-auto mt-2 mb-0 lead text-primary">
+                          <span id="fridge-temp-C">1.67</span><sup>°C</sup>
+                        </p>
+                      </li>
+                    </ul>
+                    <div class="p-4" style="position:relative;">
+                      <input id="fridge-temp" type="range" min="33.8" max="39.2" step="0.1" value="35" data-orientation="vertical" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                      <div class="info-holder info-lc">
+                        <div data-toggle="popover-all" data-content="jQuery range slider using localStorage to remember the last status." data-original-title="Temperature control" data-placement="left" data-offset="0 -12px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Fridge  END -->
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- TV1  START -->
+                <div class="card active" data-unit="tv-lcd-1">
+                  <ul class="list-group borderless">
+                    <li class="list-group-item align-items-center">
+                      <svg class="icon-sprite icon-1x">
+                        <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
+                        <use xlink:href="assets/images/icons-sprite.svg#tv-lcd"></use>
+                      </svg>
+                      <h5>TV</h5>
+                      <p class="ml-auto status">ON</p>
+                    </li>
+                  </ul>
+                  <hr class="my-0">
+                  <ul class="list-group borderless px-1">
+                    <li class="list-group-item pb-0">
+                      <p class="specs">Channel</p>
+                      <p class="ml-auto mb-0 text-primary">Kids TV24</p>
+                    </li>
+                    <li class="list-group-item pb-4">
+                      <p class="specs">Recording</p>
+                      <p class="ml-auto mb-0 text-primary text-off">OFF</p>
+                    </li>
+                  </ul>
+                </div>
+                <!-- TV1  END -->
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- TV2  START -->
+                <div class="card active" data-unit="tv-lcd-2">
+                  <!-- TV2 switch START -->
+                  <ul class="list-group borderless">
+                    <li class="list-group-item align-items-center">
+                      <svg class="icon-sprite icon-1x">
+                        <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
+                        <use xlink:href="assets/images/icons-sprite.svg#tv-lcd"></use>
+                      </svg>
+                      <h5>TV</h5>
+                      <label class="switch ml-auto checked">
+                        <input type="checkbox" id="tv-lcd-2" checked="">
+                      </label>
+                    </li>
+                  </ul>
+                  <!-- TV2 switch END -->
+                  <div class="only-if-active">
+                    <hr class="my-0">
+                    <ul class="list-group borderless px-1">
+                      <li class="list-group-item pb-0">
+                        <p class="specs">Channel</p>
+                        <p class="ml-auto mb-0 text-primary">Kids TV24</p>
+                      </li>
+                      <li class="list-group-item pb-0">
+                        <p class="specs">Recording</p>
+                        <div class="btn-group btn-group-toggle ml-auto py-1" data-toggle="buttons">
+                          <label class="btn btn-label btn-sm mb-0">
+                            <input type="radio" name="options" id="c1-nv-on" autocomplete="off"> ON
+                          </label>
+                          <label class="btn btn-label btn-sm mb-0 active">
+                            <input type="radio" name="options" id="c1-nv-off" autocomplete="off" checked=""> OFF
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- Volume control - range slider START -->
+                    <ul class="list-group borderless px-1" data-rangeslider="tv-volume-1">
+                      <li class="list-group-item">
+                        <p class="specs">Volume</p>
+                        <p class="ml-auto mb-0"><span class="range-output">45</span>%</p>
+                      </li>
+                      <li class="list-group-item pt-0 pb-4">
+                        <input id="tv-volume-1" class="volume" type="range" min="0" max="100" value="45" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;"><div class="rangeslider rangeslider--horizontal" id="js-rangeslider-1"><div class="rangeslider__fill" style="width: 333.65px;"></div><div class="rangeslider__handle" style="left: 313.65px;"></div></div>
+                      </li>
+                    </ul>
+                    <!-- Volume control - range slider END -->
+                  </div>
+                </div>
+                <!-- TV2  END -->
+              </div>
+              <!-- Appliances  END -->
+            </div>
+          </div>
+          <!-- Main content overlay when side menu appears  -->
+          <div class="cover-offcanvas" data-toggle="offcanvas"></div>
+        </div>
+        <!-- Main content END -->
+      </div>
+      <!-- row-offcanvas END -->
+    </div>
+    <!-- wrapper-offcanvas END -->
+  </div>
+  <!-- Wrapper END -->
+
+  <!-- FAB button - bottom right on large screens -->
+  <button id="info-toggler" type="button" class="btn btn-primary btn-fab btn-fixed-br d-none d-lg-inline-block">
+    <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#info"></use></svg>
+  </button>
+
+  <!-- SVG assets - not visible -->
+  <svg id="svg-tool" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <style type="text/css">
+          .glow circle {fill:url(#radial-glow)}
+      </style>
+      <filter id="blur" x="-25%" y="-25%" width="150%" height="150%">
+          <fegaussianblur in="SourceGraphic" stdDeviation="3"></fegaussianblur>
+      </filter>
+      <radialgradient id="radial-glow" fx="50%" fy="50%" r="50%">
+          <stop offset="0" stop-color="#0F9CE6" stop-opacity="1"></stop>
+          <stop offset="1" stop-color="#0F9CE6" stop-opacity="0"></stop>
+      </radialgradient>
+    </defs>
+  </svg>
+
+  <!-- jQuery -->
+	<script src="../assets/js/jquery-3.3.1.min.js"></script>
+
+  <!-- Bootstrap bundle -->
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Cross browser support for SVG icon sprites -->
+  <script src="../assets/js/svg4everybody.min.js"></script>
+
+  <!-- jQuery countdown timer plugin (Exit modal, Garage doors, Washing machine) -->
+  <script src="../assets/js/iot-timer.min.js"></script>
+
+  <!-- jQuery range-slider plugin (Dimmers, Fridge temperature) -->
+  <script src="../assets/js/iot-range-slider.min.js"></script>
+
+  <!-- Basic theme functionality (arming, garage doors, switches ...) - using jQuery -->
+  <script src="../assets/js/iot-functions.min.js"></script>
 
   <script>
     $(document).ready(function() {
@@ -406,3 +622,8 @@
     });
 
   </script>
+
+
+
+
+</body></html>
