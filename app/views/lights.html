@@ -192,7 +192,7 @@
               </div>
               <div class="col-sm-12 col-md-6 col-xl-4">
                 <!-- Light unit START -->
-                <div class="card active" data-unit="switch-light-1" ng-change="changeLED()">
+                <div class="card active" data-unit="switch-light-1" ng-change="changeLED()" ng-model="leds_status[0]">
                   <!-- Light switch START -->
                   <div class="card-body d-flex flex-row justify-content-start">
                     <svg class="icon-sprite">
@@ -200,8 +200,8 @@
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
                     <h5>Kitchen</h5>
-                    <label class="switch ml-auto checked" ng-change="changeLED()">
-                      <input type="checkbox" id="switch-light-1" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[0]">
+                    <label class="switch ml-auto checked">
+                      <input type="checkbox" id="switch-light-1" ng-true-value="1" ng-false-value="0" >
                     </label>
                   </div>
                   <!-- Light switch END -->
