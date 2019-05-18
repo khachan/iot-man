@@ -11,6 +11,24 @@
 
   <!-- Bootstrap core CSS with custom theme variables + Additional theme styles -->
   <link href="./assets/css/iot-theme-bundle.min.css" rel="stylesheet">
+    <!-- jQuery -->
+  <script src="./assets/js/jquery-3.3.1.min.js"></script>
+
+  <!-- Bootstrap bundle -->
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Cross browser support for SVG icon sprites -->
+  <script src="./assets/js/svg4everybody.min.js"></script>
+
+  <!-- jQuery range-slider plugin (Dimmers, Fridge temperature) -->
+  <script src="./assets/js/iot-range-slider.min.js"></script>
+
+  <!-- Basic theme functionality (arming, garage doors, switches ...) - using jQuery -->
+  <script src="./assets/js/iot-functions.min.js"></script>
+
+  <!-- Chartist.js library - NO jQuery dependency -->
+  <script src="./assets/js/chartist.min.js"></script>
+
   <script src="/angular.min.js"></script>
   <script src="/angular-route.min.js"></script>
   <script src="/dist/js/mobile-angular-ui.min.js"></script>
@@ -275,7 +293,7 @@
                         <p class="ml-auto mb-0"><span class="range-output">3</span></p>
                       </li>
                       <li class="list-group-item pt-0 pb-4">
-                        <input id="fan-01" class="fanspeed" type="range" min="1" max="6" value="3" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                        <input id="fan-01" class="fanspeed" type="range" min="1" max="6"  step="1" ng-model="speeds[0]" ng-change="changeFanSpeed()" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
                       </li>
                     </ul>
                     <!-- Speed control - range slider END -->
@@ -333,7 +351,7 @@
                   </div>
                   <hr class="my-0">
                   <div class="card-body">
-                    <div id="chart02" class="ct-chart"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="240" class="ct-chart-bar" style="width: 100%; height: 240px;"><g class="ct-grids"><line x1="50" x2="50" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="173.33333333333331" x2="173.33333333333331" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="296.66666666666663" x2="296.66666666666663" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="420" x2="420" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="543.3333333333333" x2="543.3333333333333" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="666.6666666666666" x2="666.6666666666666" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="790" x2="790" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="913.3333333333333" x2="913.3333333333333" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="1036.6666666666665" x2="1036.6666666666665" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="1160" x2="1160" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="1283.3333333333333" x2="1283.3333333333333" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line x1="1406.6666666666665" x2="1406.6666666666665" y1="15" y2="205" class="ct-grid ct-horizontal"></line><line y1="205" y2="205" x1="50" x2="1530" class="ct-grid ct-vertical"></line><line y1="181.25" y2="181.25" x1="50" x2="1530" class="ct-grid ct-vertical"></line><line y1="157.5" y2="157.5" x1="50" x2="1530" class="ct-grid ct-vertical"></line><line y1="133.75" y2="133.75" x1="50" x2="1530" class="ct-grid ct-vertical"></line><line y1="110" y2="110" x1="50" x2="1530" class="ct-grid ct-vertical"></line><line y1="86.25" y2="86.25" x1="50" x2="1530" class="ct-grid ct-vertical"></line><line y1="62.5" y2="62.5" x1="50" x2="1530" class="ct-grid ct-vertical"></line><line y1="38.75" y2="38.75" x1="50" x2="1530" class="ct-grid ct-vertical"></line><line y1="15" y2="15" x1="50" x2="1530" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><line x1="111.66666666666666" x2="111.66666666666666" y1="110" y2="148" class="ct-bar" ct:value="-8"></line><line x1="234.99999999999997" x2="234.99999999999997" y1="110" y2="143.25" class="ct-bar" ct:value="-7"></line><line x1="358.3333333333333" x2="358.3333333333333" y1="110" y2="138.5" class="ct-bar" ct:value="-6"></line><line x1="481.6666666666667" x2="481.6666666666667" y1="110" y2="129" class="ct-bar" ct:value="-4"></line><line x1="604.9999999999999" x2="604.9999999999999" y1="110" y2="114.75" class="ct-bar" ct:value="-1"></line><line x1="728.3333333333333" x2="728.3333333333333" y1="110" y2="105.25" class="ct-bar abovezero" ct:value="1"></line><line x1="851.6666666666666" x2="851.6666666666666" y1="110" y2="100.5" class="ct-bar abovezero" ct:value="2"></line><line x1="974.9999999999999" x2="974.9999999999999" y1="110" y2="91" class="ct-bar abovezero" ct:value="4"></line><line x1="1098.3333333333333" x2="1098.3333333333333" y1="110" y2="86.25" class="ct-bar abovezero" ct:value="5"></line><line x1="1221.6666666666667" x2="1221.6666666666667" y1="110" y2="91" class="ct-bar abovezero" ct:value="4"></line><line x1="1345" x2="1345" y1="110" y2="95.75" class="ct-bar abovezero" ct:value="3"></line><line x1="1468.3333333333333" x2="1468.3333333333333" y1="110" y2="100.5" class="ct-bar abovezero" ct:value="2"></line></g></g><g class="ct-labels"><foreignobject style="overflow: visible;" x="50" y="210" width="123.33333333333333" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">4:00</span></foreignobject><foreignobject style="overflow: visible;" x="173.33333333333331" y="210" width="123.33333333333333" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">5:00</span></foreignobject><foreignobject style="overflow: visible;" x="296.66666666666663" y="210" width="123.33333333333334" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">6:00</span></foreignobject><foreignobject style="overflow: visible;" x="420" y="210" width="123.33333333333331" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">7:00</span></foreignobject><foreignobject style="overflow: visible;" x="543.3333333333333" y="210" width="123.33333333333331" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">8:00</span></foreignobject><foreignobject style="overflow: visible;" x="666.6666666666666" y="210" width="123.33333333333337" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">9:00</span></foreignobject><foreignobject style="overflow: visible;" x="790" y="210" width="123.33333333333326" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">10:00</span></foreignobject><foreignobject style="overflow: visible;" x="913.3333333333333" y="210" width="123.33333333333337" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">11:00</span></foreignobject><foreignobject style="overflow: visible;" x="1036.6666666666665" y="210" width="123.33333333333337" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">12:00</span></foreignobject><foreignobject style="overflow: visible;" x="1160" y="210" width="123.33333333333326" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">13:00</span></foreignobject><foreignobject style="overflow: visible;" x="1283.3333333333333" y="210" width="123.33333333333326" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">14:00</span></foreignobject><foreignobject style="overflow: visible;" x="1406.6666666666665" y="210" width="123.33333333333348" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 123px; height: 20px;">15:00</span></foreignobject><foreignobject style="overflow: visible;" y="181.25" x="10" height="23.75" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">-20</span></foreignobject><foreignobject style="overflow: visible;" y="157.5" x="10" height="23.75" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">-15</span></foreignobject><foreignobject style="overflow: visible;" y="133.75" x="10" height="23.75" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">-10</span></foreignobject><foreignobject style="overflow: visible;" y="110" x="10" height="23.75" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">-5</span></foreignobject><foreignobject style="overflow: visible;" y="86.25" x="10" height="23.75" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">0</span></foreignobject><foreignobject style="overflow: visible;" y="62.5" x="10" height="23.75" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">5</span></foreignobject><foreignobject style="overflow: visible;" y="38.75" x="10" height="23.75" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">10</span></foreignobject><foreignobject style="overflow: visible;" y="15" x="10" height="23.75" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">15</span></foreignobject><foreignobject style="overflow: visible;" y="-15" x="10" height="30" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 30px; width: 30px;">20</span></foreignobject></g></svg></div>
+                    <div id="chart02" class="ct-chart"></div>
                   </div>
                 </div>
               </div>
@@ -372,24 +390,6 @@
       </radialgradient>
     </defs>
   </svg>
-
-  <!-- jQuery -->
-  <script src="./assets/js/jquery-3.3.1.min.js"></script>
-
-  <!-- Bootstrap bundle -->
-  <script src="./assets/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Cross browser support for SVG icon sprites -->
-  <script src="./assets/js/svg4everybody.min.js"></script>
-
-  <!-- jQuery range-slider plugin (Dimmers, Fridge temperature) -->
-  <script src="./assets/js/iot-range-slider.min.js"></script>
-
-  <!-- Basic theme functionality (arming, garage doors, switches ...) - using jQuery -->
-  <script src="./assets/js/iot-functions.min.js"></script>
-
-  <!-- Chartist.js library - NO jQuery dependency -->
-  <script src="./assets/js/chartist.min.js"></script>
 
   <script>
     $(document).ready(function() {

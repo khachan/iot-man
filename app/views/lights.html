@@ -11,7 +11,27 @@
 
   <!-- Bootstrap core CSS with custom theme variables + Additional theme styles -->
   <link href="./assets/css/iot-theme-bundle.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="./assets/js/jquery-3.3.1.min.js"></script>
 
+  <!-- Bootstrap bundle -->
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Cross browser support for SVG icon sprites -->
+  <script src="./assets/js/svg4everybody.min.js"></script>
+
+  <!-- jQuery range-slider plugin (Dimmers, Fridge temperature) -->
+  <script src="./assets/js/iot-range-slider.min.js"></script>
+
+  <!-- Basic theme functionality (arming, garage doors, switches ...) - using jQuery -->
+  <script src="./assets/js/iot-functions.min.js"></script>
+
+  <!-- Chartist.js library - NO jQuery dependency -->
+  <script src="./assets/js/chartist.min.js"></script>
+
+  <!-- Chartist.js pugin - Legend -->
+  <script src="./assets/js/chartist-legend.min.js"></script>
+  
   <script src="/angular.min.js"></script>
   <script src="/angular-route.min.js"></script>
   <script src="/dist/js/mobile-angular-ui.min.js"></script>
@@ -639,26 +659,7 @@
     </defs>
   </svg>
 
-  <!-- jQuery -->
-  <script src="./assets/js/jquery-3.3.1.min.js"></script>
 
-  <!-- Bootstrap bundle -->
-  <script src="./assets/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Cross browser support for SVG icon sprites -->
-  <script src="./assets/js/svg4everybody.min.js"></script>
-
-  <!-- jQuery range-slider plugin (Dimmers, Fridge temperature) -->
-  <script src="./assets/js/iot-range-slider.min.js"></script>
-
-  <!-- Basic theme functionality (arming, garage doors, switches ...) - using jQuery -->
-  <script src="./assets/js/iot-functions.min.js"></script>
-
-  <!-- Chartist.js library - NO jQuery dependency -->
-  <script src="./assets/js/chartist.min.js"></script>
-
-  <!-- Chartist.js pugin - Legend -->
-  <script src="./assets/js/chartist-legend.min.js"></script>
 
   <script>
     $(document).ready(function() {
@@ -953,12 +954,12 @@
           polyfill: false,
           onSlideEnd: function(position, value) {
 
-            var rangeValues = JSON.parse(localStorage.getItem('rangeValues')) || {};
-            // Update localStorage
-            if (localStorage) {
-              rangeValues[this.$element[0].id] = value;
-              localStorage.setItem("rangeValues", JSON.stringify(rangeValues));
-            }
+            // var rangeValues = JSON.parse(localStorage.getItem('rangeValues')) || {};
+            // // Update localStorage
+            // if (localStorage) {
+            //   rangeValues[this.$element[0].id] = value;
+            //   localStorage.setItem("rangeValues", JSON.stringify(rangeValues));
+            // }
           }
 
         });

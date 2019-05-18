@@ -21,6 +21,7 @@ angular.module('myApp', [
 	// $scope.url = "http://172.20.10.5:3484/api/device"
     $scope.CamBienMua = 10;
     $scope.leds_status = [1, 1]
+    $scope.speeds = [0, 0]
 	$scope.lcd = ["", ""]
 	$scope.servoPosition = 0
 	$scope.buttons = [] //chả có gì cả, arduino gửi nhiêu thì nhận nhiêu!
@@ -92,8 +93,6 @@ angular.module('myApp', [
 	
 	//cập nhập lcd như một ông trùm 
 	$scope.updateLCD = function() {
-		
-		
 		var json = {
 			"line": $scope.lcd
 		}
@@ -102,15 +101,14 @@ angular.module('myApp', [
 	}
 	
 	//Cách gửi tham số 2: dùng biến cục bộ: servoPosition. Biến này đươc truyền từ file home.html, dữ liệu đươc truyền vào đó chính là biến toàn cục $scope.servoPosition. Cách 2 này sẽ giúp bạn tái sử dụng hàm này vào mục đích khác, thay vì chỉ sử dụng cho việc bắt sự kiện như cách 1, xem ở Khu 4 để biết thêm ứng dụng!
-	$scope.updateServo = function(servoPosition) {
-		
+	$scope.changeFanSpeed = function() {
 		var json = {
-			"degree": servoPosition,
-			"message": "Goc ne: " + servoPosition
+			"level": $scope.speeds[0],
+			"message": "Speed: " + $scope.speeds[0]
 		}
 		
-		console.log("SEND SERVO", json) //debug chơi à
-		mySocket.emit("SERVO", json)
+		console.log("SEND FAN SPEED", json) //debug chơi à
+		mySocket.emit("FAN", json)
 	}
 	
 	////Khu 3 -- Nhận dữ liệu từ Arduno gửi lên (thông qua ESP8266 rồi socket server truyền tải!)
@@ -123,6 +121,7 @@ angular.module('myApp', [
 			}
 		});
 	})
+
 	//Khi nhận được lệnh LED_STATUS
 	mySocket.on('LED_STATUS', function(json) {
 		//Nhận được thì in ra thôi hihi.
@@ -134,23 +133,12 @@ angular.module('myApp', [
 		$scope.updateDevice(led2);
 		iot.switchSingle("switch-light-1", $scope.leds_status[0]);
 		iot.switchSingle("switch-light-2", $scope.leds_status[1]);
-	})
-	//khi nhận được lệnh Button
-	mySocket.on('BUTTON', function(json) {
-		//Nhận được thì in ra thôi hihi.
-		console.log("recv BUTTON", json)
-		$scope.buttons = json.data
-	})
-	
+	})	
 	
 	//// Khu 4 -- Những dòng code sẽ được thực thi khi kết nối với Arduino (thông qua socket server)
 	mySocket.on('connect', function() {
 		console.log("connected")
 		mySocket.emit("RAIN") //Cập nhập trạng thái mưa
-		
-		$scope.updateServo(0) //Servo quay về góc 0 độ!. Dùng cách 2 
 	})
-
-
 
 });
