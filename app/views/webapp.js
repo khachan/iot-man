@@ -132,10 +132,8 @@ angular.module('myApp', [
 		$scope.updateDevice(led1);
 		var led2 = {"name" : "Led 2", "value" : $scope.leds_status[1]};
 		$scope.updateDevice(led2);
-		console.log("switch-light-1" + $scope.leds_status[0]);
-		console.log("switch-light-2" + $scope.leds_status[1]);
-		// iot.switchSingle("switch-light-1", $scope.leds_status[0]);
-		// iot.switchSingle("switch-light-2", $scope.leds_status[1]);
+		iot.switchSingle("switch-light-1", $scope.leds_status[0]);
+		iot.switchSingle("switch-light-2", $scope.leds_status[1]);
 	})
 	//khi nhận được lệnh Button
 	mySocket.on('BUTTON', function(json) {
