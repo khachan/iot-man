@@ -16,8 +16,8 @@
 
 <body>
 
-  <!-- Preloader -->
-  <div id="iot-preloader">
+ <!-- Preloader -->
+  <div id="iot-preloader" style="display: none;">
     <div class="center-preloader d-flex align-items-center">
       <div class="spinners">
         <div class="spinner01"></div>
@@ -27,43 +27,43 @@
   </div>
 
   <!-- Alerts Modal -->
-  <div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="Alerts" aria-hidden="true">
+  <div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="cảnh báo" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
           <div class="alert alert-danger alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> Security SW update available
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Cập nhật SW bảo mật có sẵn
+          </font></font></div>
           <div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> New device recognized
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thiết bị mới được công nhận
+          </font></font></div>
           <div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> User profile is not complete
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Hồ sơ người dùng chưa hoàn tất
+          </font></font></div>
         </div>
       </div>
     </div>
-    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">×</span>
+    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Gần">
+      <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
     </button>
   </div>
 
   <!-- Alarm Modal -->
-  <div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="ALARM" aria-hidden="true" data-backdrop="static">
+  <div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="BÁO THỨC" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
       <div class="modal-content" data-dismiss="modal">
         <div class="modal-body d-flex">
           <svg class="icon-sprite icon-2x icon-pulse"><use xlink:href="assets/images/icons-sprite.svg#alarm"></use></svg>
-          <h3 class="text-right font-weight-bold ml-auto align-self-center">MOTION DETECTED!</h3>
+          <h3 class="text-right font-weight-bold ml-auto align-self-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ĐỀ NGHỊ PHÁT HIỆN!</font></font></h3>
         </div>
       </div>
-      <p class="mt-2 text-center text-danger">Click the red area to accept/close message</p>
+      <p class="mt-2 text-center text-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhấp vào khu vực màu đỏ để chấp nhận / đóng tin nhắn</font></font></p>
     </div>
   </div>
 
@@ -71,55 +71,55 @@
   <div id="wrapper" class="">
     <!-- Top navbar START -->
     <nav class="navbar navbar-expand fixed-top d-flex flex-row justify-content-start">
-			<div class="d-none d-lg-block">
-				<form>
-					<div id="menu-minifier">
-						<label>
-							<svg width="32" height="32" viewBox="0 0 32 32">
-								<rect x="2" y="8" width="4" height="3" class="menu-dots"></rect>
-								<rect x="2" y="15" width="4" height="3" class="menu-dots"></rect>
-								<rect x="2" y="22" width="4" height="3" class="menu-dots"></rect>
-								<rect x="8" y="8" width="21" height="3" class="menu-lines"></rect>
-								<rect x="8" y="15" width="21" height="3" class="menu-lines"></rect>
-								<rect x="8" y="22" width="21" height="3" class="menu-lines"></rect>
-							</svg>
-							<input id="minifier" type="checkbox"> 
-						</label>
-						<div class="info-holder info-rb">
-							<div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Side menu narrowing" data-placement="right"></div>
-						</div>
-					</div>
-				</form>
-			</div>
-			<a class="navbar-brand px-lg-3 px-1 mr-0" href="./cameras.html#">SMART family</a>
-			<div class="ml-auto">
-				<div class="navbar-nav flex-row navbar-icons">
-					<div class="nav-item">
-						<button id="alerts-toggler" class="btn btn-link nav-link" title="Alerts" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
-							<svg class="icon-sprite">
-								<use xlink:href="assets/images/icons-sprite.svg#alert"></use>
-								<svg class="text-danger"><use class="icon-dot" xlink:href="assets/images/icons-sprite.svg#icon-dot"></use></svg>
-							</svg>
-						</button>
-					</div>
-					<div id="user-menu" class="nav-item dropdown">
-						<button class="btn btn-link nav-link dropdown-toggle" title="User" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#user"></use></svg>
-						</button>
-						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item" href="./profile.html">Profile</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="./login.html">Logout</a>
-						</div>
-					</div>
-					<div class="nav-item d-lg-none">
-						<button id="sidebar-toggler" type="button" class="btn btn-link nav-link" data-toggle="offcanvas">
-						  <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#menu"></use></svg>
-						</button>
-					</div>
-				</div>
-			</div>
-		</nav>
+      <div class="d-none d-lg-block">
+        <form>
+          <div id="menu-minifier">
+            <label>
+              <svg width="32" height="32" viewBox="0 0 32 32">
+                <rect x="2" y="8" width="4" height="3" class="menu-dots"></rect>
+                <rect x="2" y="15" width="4" height="3" class="menu-dots"></rect>
+                <rect x="2" y="22" width="4" height="3" class="menu-dots"></rect>
+                <rect x="8" y="8" width="21" height="3" class="menu-lines"></rect>
+                <rect x="8" y="15" width="21" height="3" class="menu-lines"></rect>
+                <rect x="8" y="22" width="21" height="3" class="menu-lines"></rect>
+              </svg>
+              <input id="minifier" type="checkbox"> 
+            </label>
+            <div class="info-holder info-rb">
+              <div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Side menu narrowing" data-placement="right"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <a class="navbar-brand px-lg-3 px-1 mr-0" href="./cameras.html#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gia đình thông minh</font></font></a>
+      <div class="ml-auto">
+        <div class="navbar-nav flex-row navbar-icons">
+          <div class="nav-item">
+            <button id="alerts-toggler" class="btn btn-link nav-link" title="cảnh báo" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
+              <svg class="icon-sprite">
+                <use xlink:href="assets/images/icons-sprite.svg#alert"></use>
+                <svg class="text-danger"><use class="icon-dot" xlink:href="assets/images/icons-sprite.svg#icon-dot"></use></svg>
+              </svg>
+            </button>
+          </div>
+          <div id="user-menu" class="nav-item dropdown">
+            <button class="btn btn-link nav-link dropdown-toggle" title="Người dùng" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#user"></use></svg>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="./profile.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hồ sơ</font></font></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./login.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng xuất</font></font></a>
+            </div>
+          </div>
+          <div class="nav-item d-lg-none">
+            <button id="sidebar-toggler" type="button" class="btn btn-link nav-link" data-toggle="offcanvas">
+              <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#menu"></use></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
     <!-- Top navbar END -->
     <!-- wrapper-offcanvas START -->
     <div class="wrapper-offcanvas">
@@ -130,33 +130,33 @@
           <ul class="nav flex-column nav-sidebar">
             <li class="nav-item">
               <a class="nav-link" href="./index.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg> Home
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Nhà
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./lights.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg> Lights
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Đèn
+              </font></font></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link active" href="./cameras.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg> Cameras
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Máy ảnh
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./appliances.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg> Appliances
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thiết bị gia dụng
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./climate.html">
-				<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span>Climate</span>
+        <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhiệt độ</font></font></span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="./cameras.html#">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg> Settings
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Cài đặt
+              </font></font></a>
             </li>
           </ul>
         </div>
@@ -186,7 +186,7 @@
                   </div>
                   <div class="card-img-top card-stream off">
                     <div class="embed-responsive embed-responsive-16by9">
-                      <h2 class="center-abs">OFF</h2>
+                      <h2 class="center-abs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TẮT</font></font></h2>
                     </div>
                   </div>
                   <!-- Camera switch START -->
@@ -195,7 +195,7 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#camera"></use>
                     </svg>
-                    <h5>Outdoor front</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mặt tiền ngoài trời</font></font></h5>
                     <label class="switch ml-auto checked">
                       <input type="checkbox" id="switch-camera-1" checked="">
                     </label>
@@ -205,32 +205,32 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item pt-3 pb-2">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 py-1 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 py-1 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item py-2">
-                      <p class="specs">Night vision</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tầm nhìn ban đêm</font></font></p>
                       <div class="btn-group btn-group-toggle ml-auto py-1" data-toggle="buttons">
                         <label class="btn btn-label btn-sm mb-0 active">
-                          <input type="radio" name="options" id="c1-nv-auto" autocomplete="off" checked=""> AUTO
-                        </label>
+                          <input type="radio" name="options" id="c1-nv-auto" autocomplete="off" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> TỰ ĐỘNG
+                        </font></font></label>
                         <label class="btn btn-label btn-sm mb-0">
-                          <input type="radio" name="options" id="c1-nv-on" autocomplete="off"> ON
-                        </label>
+                          <input type="radio" name="options" id="c1-nv-on" autocomplete="off"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> TRÊN
+                        </font></font></label>
                         <label class="btn btn-label btn-sm mb-0">
-                          <input type="radio" name="options" id="c1-nv-off" autocomplete="off"> OFF
-                        </label>
+                          <input type="radio" name="options" id="c1-nv-off" autocomplete="off"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> TẮT
+                        </font></font></label>
                       </div>
                     </li>
                     <li class="list-group-item pt-2 pb-4">
-                      <p class="specs">Timelaps recording</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ghi thời gian</font></font></p>
                       <div class="btn-group btn-group-toggle ml-auto py-1" data-toggle="buttons">
                         <label class="btn btn-label btn-sm mb-0 active">
-                          <input type="radio" name="options" id="c1-rec-on" autocomplete="off" checked=""> ENABLE
-                        </label>
+                          <input type="radio" name="options" id="c1-rec-on" autocomplete="off" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ENABLE
+                        </font></font></label>
                         <label class="btn btn-label btn-sm mb-0">
-                          <input type="radio" name="options" id="c1-rec-off" autocomplete="off"> DISABLE
-                        </label>
+                          <input type="radio" name="options" id="c1-rec-off" autocomplete="off"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> VÔ HIỆU HÓA
+                        </font></font></label>
                       </div>
                     </li>
                   </ul>
@@ -259,7 +259,7 @@
                   </div>
                   <div class="card-img-top card-stream off">
                     <div class="embed-responsive embed-responsive-16by9">
-                      <h2 class="center-abs">OFF</h2>
+                      <h2 class="center-abs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TẮT</font></font></h2>
                     </div>
                   </div>
                   <!-- Camera switch START -->
@@ -268,7 +268,7 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#camera"></use>
                     </svg>
-                    <h5>Joe's room</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng của Joe</font></font></h5>
                     <label class="switch ml-auto">
                       <input type="checkbox" id="switch-camera-2">
                     </label>
@@ -278,35 +278,35 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item pt-3 pb-2">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 py-1 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 py-1 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item flex-column py-2">
-                      <p class="specs w-100">Night vision</p>
+                      <p class="specs w-100"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tầm nhìn ban đêm</font></font></p>
                       <div class="btn-group btn-group-toggle w-100 py-2" data-toggle="buttons">
                         <label class="btn btn-label btn-sm mb-0 col-4 active">
-                          <input type="radio" name="options" id="c2-nv-auto" autocomplete="off" checked=""> AUTO
-                        </label>
+                          <input type="radio" name="options" id="c2-nv-auto" autocomplete="off" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> TỰ ĐỘNG
+                        </font></font></label>
                         <label class="btn btn-label btn-sm mb-0 col-4">
-                          <input type="radio" name="options" id="c2-nv-on" autocomplete="off"> ON
-                        </label>
+                          <input type="radio" name="options" id="c2-nv-on" autocomplete="off"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> TRÊN
+                        </font></font></label>
                         <label class="btn btn-label btn-sm mb-0 col-4">
-                          <input type="radio" name="options" id="c2-nv-off" autocomplete="off"> OFF
-                        </label>
+                          <input type="radio" name="options" id="c2-nv-off" autocomplete="off"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> TẮT
+                        </font></font></label>
                       </div>
                       <div class="info-holder info-ct">
                         <div data-toggle="popover-all" data-content="Group of radio buttons." data-original-title="Option settings" data-placement="bottom" data-offset="0,-32"></div>
                       </div>
                     </li>
                     <li class="list-group-item flex-column pt-2 pb-4">
-                      <p class="specs w-100">Timelaps recording</p>
+                      <p class="specs w-100"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ghi thời gian</font></font></p>
                       <div class="btn-group btn-group-toggle w-100 ml-auto py-2" data-toggle="buttons">
                         <label class="btn btn-label btn-sm mb-0 w-100 active">
-                          <input type="radio" name="options" id="c2-rec-on" autocomplete="off" checked=""> ENABLE
-                        </label>
+                          <input type="radio" name="options" id="c2-rec-on" autocomplete="off" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ENABLE
+                        </font></font></label>
                         <label class="btn btn-label btn-sm mb-0 w-100">
-                          <input type="radio" name="options" id="c2-rec-off" autocomplete="off"> DISABLE
-                        </label>
+                          <input type="radio" name="options" id="c2-rec-off" autocomplete="off"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> VÔ HIỆU HÓA
+                        </font></font></label>
                       </div>
                     </li>
                   </ul>

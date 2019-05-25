@@ -24,8 +24,8 @@
 
 <body ng-app="myApp" ng-controller="Home">
 
-	<!-- Preloader -->
-	<div id="iot-preloader">
+		<!-- Preloader -->
+	<div id="iot-preloader" style="display: none;">
 		<div class="center-preloader d-flex align-items-center">
 			<div class="spinners">
 				<div class="spinner01"></div>
@@ -35,59 +35,59 @@
 	</div>
 
 	<!-- Alerts Modal -->
-	<div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="Alerts" aria-hidden="true">
+	<div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="cảnh báo" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="alert alert-danger alert-dismissible fade show border-0" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button> Security SW update available
-					</div>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+							<span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+						</button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Cập nhật SW bảo mật có sẵn
+					</font></font></div>
 					<div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button> New device recognized
-					</div>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+							<span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+						</button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thiết bị mới được công nhận
+					</font></font></div>
 					<div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button> User profile is not complete
-					</div>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+							<span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+						</button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Hồ sơ người dùng chưa hoàn tất
+					</font></font></div>
 				</div>
 			</div>
 		</div>
-		<button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">×</span>
+		<button type="button" class="close close-modal" data-dismiss="modal" aria-label="Gần">
+      <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
     </button>
 	</div>
 
 	<!-- Arming Modal -->
-	<div class="modal modal-warning centered fade" id="armModal" tabindex="-1" role="dialog" aria-label="Arming" aria-hidden="true">
+	<div class="modal modal-warning centered fade" id="armModal" tabindex="-1" role="dialog" aria-label="Vũ trang" aria-hidden="true">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
 				<div class="modal-body">
 					<div id="armTimer">
-						<h3 class="font-weight-bold">EXIT NOW! <span class="timer font-weight-normal"></span></h3>
+						<h3 class="font-weight-bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">THOÁT NGAY BÂY GIỜ! </font></font><span class="timer font-weight-normal"></span></h3>
 					</div>
 				</div>
 			</div>
 		</div>
-		<button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">×</span>
+		<button type="button" class="close close-modal" data-dismiss="modal" aria-label="Gần">
+			<span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
 		</button>
 	</div>
 
 	<!-- Alarm Modal -->
-	<div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="ALARM" aria-hidden="true" data-backdrop="static">
+	<div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="BÁO THỨC" aria-hidden="true" data-backdrop="static">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" data-dismiss="modal">
 				<div class="modal-body d-flex">
 					<svg class="icon-sprite icon-2x icon-pulse"><use xlink:href="assets/images/icons-sprite.svg#alarm"></use></svg>
-					<h3 class="text-right font-weight-bold ml-auto align-self-center">MOTION DETECTED!</h3>
+					<h3 class="text-right font-weight-bold ml-auto align-self-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ĐỀ NGHỊ PHÁT HIỆN!</font></font></h3>
 				</div>
 			</div>
-			<p class="mt-2 text-center text-danger">Click the red area to accept/close message</p>
+			<p class="mt-2 text-center text-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhấp vào khu vực màu đỏ để chấp nhận / đóng tin nhắn</font></font></p>
 		</div>
 	</div>
 
@@ -96,7 +96,7 @@
 		<!-- Top navbar START -->
 		<nav class="navbar navbar-expand fixed-top d-flex flex-row justify-content-start">
 			<div class="d-none d-lg-block">
-				<form>
+				<form class="ng-pristine ng-valid">
 					<div id="menu-minifier">
 						<label>
 							<svg width="32" height="32" viewBox="0 0 32 32">
@@ -107,7 +107,7 @@
 								<rect x="8" y="15" width="21" height="3" class="menu-lines"></rect>
 								<rect x="8" y="22" width="21" height="3" class="menu-lines"></rect>
 							</svg>
-							<input id="minifier" type="checkbox"> 
+							<input id="minifier" type="checkbox" class="needsclick"> 
 						</label>
 						<div class="info-holder info-rb">
 							<div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Side menu narrowing" data-placement="right"></div>
@@ -115,11 +115,11 @@
 					</div>
 				</form>
 			</div>
-			<a class="navbar-brand px-lg-3 px-1 mr-0" href="./index.html#">SMART family</a>
+			<a class="navbar-brand px-lg-3 px-1 mr-0" href="./index.html#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gia đình thông minh</font></font></a>
 			<div class="ml-auto">
 				<div class="navbar-nav flex-row navbar-icons">
 					<div class="nav-item">
-						<button id="alerts-toggler" class="btn btn-link nav-link" title="Alerts" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
+						<button id="alerts-toggler" class="btn btn-link nav-link" title="cảnh báo" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
 							<svg class="icon-sprite">
 								<use xlink:href="assets/images/icons-sprite.svg#alert"></use>
 								<svg class="text-danger"><use class="icon-dot" xlink:href="assets/images/icons-sprite.svg#icon-dot"></use></svg>
@@ -127,13 +127,13 @@
 						</button>
 					</div>
 					<div id="user-menu" class="nav-item dropdown">
-						<button class="btn btn-link nav-link dropdown-toggle" title="User" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<button class="btn btn-link nav-link dropdown-toggle" title="Người dùng" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#user"></use></svg>
 						</button>
 						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item" href="./profile.html">Profile</a>
+							<a class="dropdown-item" href="./profile.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hồ sơ</font></font></a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="./login.html">Logout</a>
+							<a class="dropdown-item" href="./login.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng xuất</font></font></a>
 						</div>
 					</div>
 					<div class="nav-item d-lg-none">
@@ -154,33 +154,33 @@
 					<ul class="nav flex-column nav-sidebar">
 						<li class="nav-item active">
 							<a class="nav-link active" href="./index.html">
-								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg> Home
-							</a>
+								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Nhà
+							</font></font></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="./lights.html">
-								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg> Lights
-							</a>
+								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Đèn
+							</font></font></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="./cameras.html">
-								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg> Cameras
-							</a>
+								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Máy ảnh
+							</font></font></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="./appliances.html">
-								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg> Appliances
-							</a>
+								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thiết bị gia dụng
+							</font></font></a>
 						</li>
                         <li class="nav-item">
                           <a class="nav-link" href="./climate.html">
-                            <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span>Climate</span>
+                            <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhiệt độ</font></font></span>
                           </a>
                         </li>
 						<li class="nav-item">
 							<a class="nav-link disabled" href="./index.html#">
-								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg> Settings
-							</a>
+								<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Cài đặt
+							</font></font></a>
 						</li>
 					</ul>
 				</div>
@@ -191,7 +191,7 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="card p-2 mb-4">
-									<img src="./assets/images/symbiot4.svg" width="140" height="20" alt="SYMBIOT 4" class="mx-auto">
+									<img src="./assets/images/symbiot4.svg" width="140" height="20" alt="TRIỆU CHỨNG 4" class="mx-auto">
 								</div>
 							</div>
 						</div>
@@ -206,11 +206,11 @@
 										  <use class="subicon-locked" xlink:href="assets/images/icons-sprite.svg#subicon-locked"></use>
 										</svg>
 										<div class="title-status">
-											<h4>Security system</h4>
+											<h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hệ thống an ninh</font></font></h4>
 											<p class="status"><span class="arm"></span></p>
 										</div>
 										<label class="switch ml-auto">
-											<input type="checkbox" id="switch-house-lock">
+											<input type="checkbox" id="switch-house-lock" class="needsclick">
 										</label>
 									</div>
 								</div>
@@ -226,14 +226,14 @@
 												<use xlink:href="assets/images/icons-sprite.svg#garage"></use>
 											</svg>
 											<div class="title-status">
-												<h5>Garage doors</h5>
-												<p class="status text-danger">Close</p>
+												<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa nhà để xe</font></font></h5>
+												<p class="status text-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gần</font></font></p>
 											</div>
 											<div class="ml-auto timer-controls" data-controls="garage-doors-1">
-												<button data-action="open" type="button" class="btn btn-secondary doors-control">Open</button>
-												<button data-action="pause" type="button" class="btn btn-secondary doors-control">Pause</button>
-												<button data-action="resume" type="button" class="btn btn-secondary doors-control">Resume</button>
-												<button data-action="close" type="button" class="btn btn-secondary doors-control">Close</button>
+												<button data-action="open" type="button" class="btn btn-secondary doors-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mở</font></font></button>
+												<button data-action="pause" type="button" class="btn btn-secondary doors-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tạm ngừng</font></font></button>
+												<button data-action="resume" type="button" class="btn btn-secondary doors-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tiếp tục</font></font></button>
+												<button data-action="close" type="button" class="btn btn-secondary doors-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gần</font></font></button>
 											</div>
 										</div>
 										<div class="progress">
@@ -252,17 +252,17 @@
 								<!-- Interior lights  START -->
 								<div class="card" data-unit-group="switch-lights">
 									<div class="card-body">
-										<h3 class="card-title">Lights - interior</h3>
+										<h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đèn - nội thất</font></font></h3>
 									</div>
 									<ul class="list-group list-group-flush">
-										<li class="list-group-item d-flex active" data-unit="switch-light-1">
+										<li class="list-group-item d-flex" data-unit="switch-light-1">
 											<svg class="icon-sprite">
 												<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 												<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 											</svg>
-											<h5>Kitchen</h5>
-											<label class="switch ml-auto checked">
-												<input type="checkbox" id="switch-light-1" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[0]">
+											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng bếp</font></font></h5>
+											<label class="switch ml-auto">
+												<input type="checkbox" id="switch-light-1" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[0]" class="ng-valid needsclick ng-empty ng-dirty ng-valid-parse ng-touched">
 											</label>
 											<div class="info-holder info-rb" style="right:40px;">
 												<div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Switch ON/OFF" data-container="body" data-placement="top" data-offset="0,-6"></div>
@@ -273,9 +273,9 @@
 												<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 												<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 											</svg>
-											<h5>Dining room</h5>
+											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng ăn</font></font></h5>
 											<label class="switch ml-auto">
-												<input type="checkbox" id="switch-light-2"ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[1]">
+												<input type="checkbox" id="switch-light-2" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[1]" class="ng-pristine ng-untouched ng-valid needsclick ng-not-empty">
 											</label>
 										</li>
 										<li class="list-group-item d-flex" data-unit="switch-light-3">
@@ -283,9 +283,9 @@
 												<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 												<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 											</svg>
-											<h5>Living room</h5>
+											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng khách</font></font></h5>
 											<label class="switch ml-auto">
-												<input type="checkbox" id="switch-light-3">
+												<input type="checkbox" id="switch-light-3" class="needsclick">
 											</label>
 										</li>
 										<li class="list-group-item d-flex" data-unit="switch-light-4">
@@ -293,9 +293,9 @@
 												<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 												<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 											</svg>
-											<h5>Bedroom</h5>
+											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng ngủ</font></font></h5>
 											<label class="switch ml-auto">
-												<input type="checkbox" id="switch-light-4">
+												<input type="checkbox" id="switch-light-4" class="needsclick">
 											</label>
 										</li>
 										<li class="list-group-item d-flex" data-unit="switch-light-5">
@@ -303,16 +303,16 @@
 												<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 												<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 											</svg>
-											<h5>Bathroom</h5>
+											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng tắm</font></font></h5>
 											<label class="switch ml-auto">
-												<input type="checkbox" id="switch-light-5">
+												<input type="checkbox" id="switch-light-5" class="needsclick">
 											</label>
 										</li>
 									</ul>
 									<div class="card-body">
 										<div class="lights-controls" data-controls="switch-lights">
-											<button data-action="all-on" type="button" class="btn btn-primary lights-control">All <strong>ON</strong></button>
-											<button data-action="all-off" type="button" class="btn btn-secondary lights-control">All <strong>OFF</strong></button>
+											<button data-action="all-on" type="button" class="btn btn-primary lights-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tất cả </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BẬT</font></font></strong></button>
+											<button data-action="all-off" type="button" class="btn btn-secondary lights-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tất cả </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TẮT</font></font></strong></button>
 										</div>
 									</div>
 								</div>
@@ -320,16 +320,16 @@
 							</div>
 							<div class="col-sm-12 col-md-6 col-xl-4">
 								<!-- Exterior lights  START -->
-								<h3 class="card-title my-3">Lights - exterior</h3>
+								<h3 class="card-title my-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đèn - ngoại thất</font></font></h3>
 								<div class="card" data-unit="switch-light-6">
 									<div class="card-body d-flex flex-row justify-content-start">
 										<svg class="icon-sprite">
 											<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 											<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 										</svg>
-										<h5>Front doors</h5>
+										<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa trước</font></font></h5>
 										<label class="switch ml-auto">
-											<input type="checkbox" id="switch-light-6">
+											<input type="checkbox" id="switch-light-6" class="needsclick">
 										</label>
 									</div>
 								</div>
@@ -339,9 +339,9 @@
 											<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 											<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 										</svg>
-										<h5>Back doors</h5>
+										<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa sau</font></font></h5>
 										<label class="switch ml-auto">
-											<input type="checkbox" id="switch-light-7">
+											<input type="checkbox" id="switch-light-7" class="needsclick">
 										</label>
 									</div>
 								</div>
@@ -351,9 +351,9 @@
 											<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 											<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 										</svg>
-										<h5>Pool</h5>
+										<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bể bơi</font></font></h5>
 										<label class="switch ml-auto">
-											<input type="checkbox" id="switch-light-8">
+											<input type="checkbox" id="switch-light-8" class="needsclick">
 										</label>
 									</div>
 								</div>
@@ -363,9 +363,9 @@
 											<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 											<use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
 										</svg>
-										<h5>Garage</h5>
+										<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhà để xe</font></font></h5>
 										<label class="switch ml-auto">
-											<input type="checkbox" id="switch-light-9">
+											<input type="checkbox" id="switch-light-9" class="needsclick">
 										</label>
 									</div>
 								</div>
@@ -375,7 +375,7 @@
 								<!-- Appliances  START -->
 								<div class="card">
 									<div class="card-body">
-										<h3 class="card-title">Appliances</h3>
+										<h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thiết bị gia dụng</font></font></h3>
 									</div>
 									<hr class="my-0">
 									<!-- Washing machine  START -->
@@ -385,12 +385,12 @@
 												<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 												<use xlink:href="assets/images/icons-sprite.svg#wash-machine"></use>
 											</svg>
-											<h5>Washing machine</h5>
-											<p class="ml-auto status">ON</p>
+											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Máy giặt</font></font></h5>
+											<p class="ml-auto status"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TRÊN</font></font></p>
 										</li>
 										<li class="list-group-item d-flex pt-0 pb-4">
-											<p class="entry">Remaining time</p>
-											<p id="wash-machine" class="ml-auto mb-0">01:16:52</p>
+											<p class="entry"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thời gian còn lại</font></font></p>
+											<p id="wash-machine" class="ml-auto mb-0">01:14:08</p>
 										</li>
 									</ul>
 									<!-- Washing machine  END -->
@@ -402,12 +402,12 @@
 												<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 												<use xlink:href="assets/images/icons-sprite.svg#home-fridge"></use>
 											</svg>
-											<h5>Fridge</h5>
-											<p class="ml-auto status">ON</p>
+											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tủ lạnh</font></font></h5>
+											<p class="ml-auto status"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TRÊN</font></font></p>
 										</li>
 										<li class="list-group-item d-flex pt-0 pb-4">
-											<p class="entry">Temperature</p>
-											<p class="ml-auto mb-0">35<sup>°F</sup></p>
+											<p class="entry"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhiệt độ</font></font></p>
+											<p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">35 </font></font><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">° F</font></font></sup></p>
 										</li>
 									</ul>
 									<!-- Fridge  END -->
@@ -419,8 +419,8 @@
 												<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 												<use xlink:href="assets/images/icons-sprite.svg#tv-lcd"></use>
 											</svg>
-											<h5>TV</h5>
-											<p class="ml-auto status">OFF</p>
+											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">truyền hình</font></font></h5>
+											<p class="ml-auto status"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TẮT</font></font></p>
 										</li>
 									</ul>
 									<!-- TV  END -->
@@ -431,7 +431,7 @@
 						<div class="row">
 							<div class="col-sm-12 col-md-6">
 								<!-- Camera 1  START -->
-								<div class="card active" data-unit="switch-camera-1">
+								<div class="card" data-unit="switch-camera-1">
 									<div class="card-img-top card-stream">
 										<div class="embed-responsive embed-responsive-16by9">
 											<video muted="" loop="" autoplay="">
@@ -450,7 +450,7 @@
 									</div>
 									<div class="card-img-top card-stream off">
 										<div class="embed-responsive embed-responsive-16by9">
-											<h2 class="center-abs">OFF</h2>
+											<h2 class="center-abs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TẮT</font></font></h2>
 										</div>
 									</div>
 									<div class="card-body d-flex">
@@ -458,9 +458,9 @@
 											<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 											<use xlink:href="assets/images/icons-sprite.svg#camera"></use>
 										</svg>
-										<h5>Outdoor front</h5>
-										<label class="switch ml-auto checked">
-											<input type="checkbox" id="switch-camera-1" checked="">
+										<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mặt tiền ngoài trời</font></font></h5>
+										<label class="switch ml-auto">
+											<input type="checkbox" id="switch-camera-1" checked="" class="needsclick">
 										</label>
 									</div>
 								</div>
@@ -487,7 +487,7 @@
 									</div>
 									<div class="card-img-top card-stream off">
 										<div class="embed-responsive embed-responsive-16by9">
-											<h2 class="center-abs">OFF</h2>
+											<h2 class="center-abs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TẮT</font></font></h2>
 										</div>
 									</div>
 									<div class="card-body d-flex">
@@ -495,9 +495,9 @@
 											<use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
 											<use xlink:href="assets/images/icons-sprite.svg#camera"></use>
 										</svg>
-										<h5>Joe's room</h5>
+										<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng của Joe</font></font></h5>
 										<label class="switch ml-auto">
-											<input type="checkbox" id="switch-camera-2">
+											<input type="checkbox" id="switch-camera-2" class="needsclick">
 										</label>
 									</div>
 								</div>
@@ -508,12 +508,12 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<!-- Demonstration - buttons -->
-								<button type="button" class="btn btn-primary my-2">PRIMARY</button>
-								<button type="button" class="btn btn-secondary my-2">SECONDARY</button>
-								<button type="button" class="btn btn-lg btn-danger mx-2 my-2" data-toggle="modal" data-target="#alarmModal"> Demo ALARM </button>
-								<button type="button" class="btn btn-warning my-2">WARNING</button>
-								<button type="button" class="btn btn-success my-2">SUCCESS</button>
-								<button type="button" class="btn btn-info my-2">INFO</button>
+								<button type="button" class="btn btn-primary my-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SƠ CẤP</font></font></button>
+								<button type="button" class="btn btn-secondary my-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">THỨ HAI</font></font></button>
+								<button type="button" class="btn btn-lg btn-danger mx-2 my-2" data-toggle="modal" data-target="#alarmModal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Bản thử nghiệm </font></font></button>
+								<button type="button" class="btn btn-warning my-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CẢNH BÁO</font></font></button>
+								<button type="button" class="btn btn-success my-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SỰ THÀNH CÔNG</font></font></button>
+								<button type="button" class="btn btn-info my-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">THÔNG TIN</font></font></button>
 							</div>
 						</div>
 					</div>
@@ -532,6 +532,7 @@
 	<button id="info-toggler" type="button" class="btn btn-primary btn-fab btn-fixed-br d-none d-lg-inline-block" style="right: 40px;">
     <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#info"></use></svg>
   </button>
+
 
 	<!-- SVG assets - not visible -->
 	<svg id="svg-tool" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

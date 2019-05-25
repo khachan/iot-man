@@ -44,8 +44,8 @@
 
 <body ng-app="myApp" ng-controller="Home">
 
-  <!-- Preloader -->
-  <div id="iot-preloader">
+ <!-- Preloader -->
+  <div id="iot-preloader" style="display: none;">
     <div class="center-preloader d-flex align-items-center">
       <div class="spinners">
         <div class="spinner01"></div>
@@ -55,43 +55,43 @@
   </div>
 
   <!-- Alerts Modal -->
-  <div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="Alerts" aria-hidden="true">
+  <div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="cảnh báo" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
           <div class="alert alert-danger alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> Security SW update available
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Cập nhật SW bảo mật có sẵn
+          </font></font></div>
           <div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> New device recognized
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thiết bị mới được công nhận
+          </font></font></div>
           <div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> User profile is not complete
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Hồ sơ người dùng chưa hoàn tất
+          </font></font></div>
         </div>
       </div>
     </div>
-    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">×</span>
+    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Gần">
+      <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
     </button>
   </div>
 
   <!-- Alarm Modal -->
-  <div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="ALARM" aria-hidden="true" data-backdrop="static">
+  <div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="BÁO THỨC" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
       <div class="modal-content" data-dismiss="modal">
         <div class="modal-body d-flex">
           <svg class="icon-sprite icon-2x icon-pulse"><use xlink:href="assets/images/icons-sprite.svg#alarm"></use></svg>
-          <h3 class="text-right font-weight-bold ml-auto align-self-center">MOTION DETECTED!</h3>
+          <h3 class="text-right font-weight-bold ml-auto align-self-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ĐỀ NGHỊ PHÁT HIỆN!</font></font></h3>
         </div>
       </div>
-      <p class="mt-2 text-center text-danger">Click the red area to accept/close message</p>
+      <p class="mt-2 text-center text-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhấp vào khu vực màu đỏ để chấp nhận / đóng tin nhắn</font></font></p>
     </div>
   </div>
 
@@ -100,7 +100,7 @@
     <!-- Top navbar START -->
     <nav class="navbar navbar-expand fixed-top d-flex flex-row justify-content-start">
       <div class="d-none d-lg-block">
-        <form>
+        <form class="ng-pristine ng-valid">
           <div id="menu-minifier">
             <label>
               <svg width="32" height="32" viewBox="0 0 32 32">
@@ -111,7 +111,7 @@
                 <rect x="8" y="15" width="21" height="3" class="menu-lines"></rect>
                 <rect x="8" y="22" width="21" height="3" class="menu-lines"></rect>
               </svg>
-              <input id="minifier" type="checkbox"> 
+              <input id="minifier" type="checkbox" class="needsclick"> 
             </label>
             <div class="info-holder info-rb">
               <div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Side menu narrowing" data-placement="right"></div>
@@ -119,11 +119,11 @@
           </div>
         </form>
       </div>
-      <a class="navbar-brand px-lg-3 px-1 mr-0" href="./lights.html#">SMART family</a>
+      <a class="navbar-brand px-lg-3 px-1 mr-0" href="./lights.html#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gia đình thông minh</font></font></a>
       <div class="ml-auto">
         <div class="navbar-nav flex-row navbar-icons">
           <div class="nav-item">
-            <button id="alerts-toggler" class="btn btn-link nav-link" title="Alerts" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
+            <button id="alerts-toggler" class="btn btn-link nav-link" title="cảnh báo" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
               <svg class="icon-sprite">
                 <use xlink:href="assets/images/icons-sprite.svg#alert"></use>
                 <svg class="text-danger"><use class="icon-dot" xlink:href="assets/images/icons-sprite.svg#icon-dot"></use></svg>
@@ -131,13 +131,13 @@
             </button>
           </div>
           <div id="user-menu" class="nav-item dropdown">
-            <button class="btn btn-link nav-link dropdown-toggle" title="User" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-link nav-link dropdown-toggle" title="Người dùng" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#user"></use></svg>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="./profile.html">Profile</a>
+              <a class="dropdown-item" href="./profile.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hồ sơ</font></font></a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="./login.html">Logout</a>
+              <a class="dropdown-item" href="./login.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng xuất</font></font></a>
             </div>
           </div>
           <div class="nav-item d-lg-none">
@@ -158,33 +158,33 @@
           <ul class="nav flex-column nav-sidebar">
             <li class="nav-item">
               <a class="nav-link" href="./index.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg> Home
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Nhà
+              </font></font></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link active" href="./lights.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg> Lights
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Đèn
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./cameras.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg> Cameras
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Máy ảnh
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./appliances.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg> Appliances
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thiết bị gia dụng
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./climate.html">
-        <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span>Climate</span>
+        <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhiệt độ</font></font></span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="./lights.html#">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg> Settings
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Cài đặt
+              </font></font></a>
             </li>
           </ul>
         </div>
@@ -198,13 +198,13 @@
                 <!-- ON/OFF all interior lights  START -->
                 <div class="card">
                   <div class="card-body">
-                    <h3 class="card-title">Interior Lights</h3>
+                    <h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đèn nội thất</font></font></h3>
                   </div>
                   <hr class="my-0">
                   <div class="card-body">
                     <div class="lights-controls" data-controls="switch-lights-in">
-                      <button data-action="all-on" type="button" class="btn btn-primary lights-control">All <strong>ON</strong></button>
-                      <button data-action="all-off" type="button" class="btn btn-secondary lights-control">All <strong>OFF</strong></button>
+                      <button data-action="all-on" type="button" class="btn btn-primary lights-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tất cả </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BẬT</font></font></strong></button>
+                      <button data-action="all-off" type="button" class="btn btn-secondary lights-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tất cả </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TẮT</font></font></strong></button>
                     </div>
                   </div>
                 </div>
@@ -212,16 +212,16 @@
               </div>
               <div class="col-sm-12 col-md-6 col-xl-4">
                 <!-- Light unit START -->
-                <div class="card active" data-unit="switch-light-1">
+                <div class="card" data-unit="switch-light-1">
                   <!-- Light switch START -->
                   <div class="card-body d-flex flex-row justify-content-start">
                     <svg class="icon-sprite">
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Kitchen</h5>
-                    <label class="switch ml-auto checked">
-                      <input type="checkbox" id="switch-light-1" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[0]">
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng bếp</font></font></h5>
+                    <label class="switch ml-auto">
+                      <input type="checkbox" id="switch-light-1" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[0]" class="ng-pristine ng-untouched ng-valid needsclick ng-not-empty">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -229,16 +229,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">24W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">24W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->
@@ -246,11 +246,11 @@
                   <!-- Dimmer control - range slider START -->
                   <ul class="list-group borderless px-1" data-rangeslider="dimmer-light-1">
                     <li class="list-group-item">
-                      <p class="specs">Dim</p>
-                      <p class="ml-auto mb-0"><span class="range-output">100</span>%</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Độ sáng</font></font></p>
+                      <p class="ml-auto mb-0"><span class="range-output"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> %</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <input id="dimmer-light-1" type="range" min="10" max="100" value="100" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                      <input id="dimmer-light-1" type="range" min="10" max="100" value="100" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;" class="needsclick">
                     </li>
                   </ul>
                   <div class="info-holder info-cb">
@@ -262,16 +262,16 @@
               </div>
               <div class="col-sm-12 col-md-6 col-xl-4">
                 <!-- Light unit START -->
-                <div class="card active" data-unit="switch-light-2">
+                <div class="card" data-unit="switch-light-2">
                   <!-- Light switch START -->
                   <div class="card-body d-flex flex-row justify-content-start">
                     <svg class="icon-sprite">
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Dining room</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng ăn</font></font></h5>
                     <label class="switch ml-auto">
-                      <input type="checkbox" id="switch-light-2" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[1]">
+                      <input type="checkbox" id="switch-light-2" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[1]" class="ng-pristine ng-untouched ng-valid needsclick ng-not-empty">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -279,16 +279,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">18W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">18W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->
@@ -296,11 +296,11 @@
                   <!-- Dimmer control - range slider START -->
                   <ul class="list-group borderless px-1" data-rangeslider="dimmer-light-2">
                     <li class="list-group-item">
-                      <p class="specs">Dim</p>
-                      <p class="ml-auto mb-0"><span class="range-output">100</span>%</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Độ sáng</font></font></p>
+                      <p class="ml-auto mb-0"><span class="range-output"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> %</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <input id="dimmer-light-2" type="range" min="10" max="100" value="100" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                      <input id="dimmer-light-2" type="range" min="10" max="100" value="100" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;" class="needsclick">
                     </li>
                   </ul>
                   <!-- Dimmer control - range slider END -->
@@ -316,9 +316,9 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Living room</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng khách</font></font></h5>
                     <label class="switch ml-auto">
-                      <input type="checkbox" id="switch-light-3">
+                      <input type="checkbox" id="switch-light-3" class="needsclick">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -326,16 +326,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">24W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">24W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->
@@ -343,11 +343,11 @@
                   <!-- Dimmer control - range slider START -->
                   <ul class="list-group borderless px-1" data-rangeslider="dimmer-light-3">
                     <li class="list-group-item">
-                      <p class="specs">Dim</p>
-                      <p class="ml-auto mb-0"><span class="range-output">100</span>%</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Độ sáng</font></font></p>
+                      <p class="ml-auto mb-0"><span class="range-output"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> %</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <input id="dimmer-light-3" type="range" min="10" max="100" value="100" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                      <input id="dimmer-light-3" type="range" min="10" max="100" value="100" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;" class="needsclick">
                     </li>
                   </ul>
                   <!-- Dimmer control - range slider END -->
@@ -363,9 +363,9 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Bedroom</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng ngủ</font></font></h5>
                     <label class="switch ml-auto">
-                      <input type="checkbox" id="switch-light-4">
+                      <input type="checkbox" id="switch-light-4" class="needsclick">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -373,16 +373,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">15W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->
@@ -390,11 +390,11 @@
                   <!-- Dimmer control - range slider START -->
                   <ul class="list-group borderless px-1" data-rangeslider="dimmer-light-4">
                     <li class="list-group-item">
-                      <p class="specs">Dim</p>
-                      <p class="ml-auto mb-0"><span class="range-output">65</span>%</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Độ sáng</font></font></p>
+                      <p class="ml-auto mb-0"><span class="range-output"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">65</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> %</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <input id="dimmer-light-4" type="range" min="10" max="100" value="65" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                      <input id="dimmer-light-4" type="range" min="10" max="100" value="65" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;" class="needsclick">
                     </li>
                   </ul>
                   <!-- Dimmer control - range slider END -->
@@ -410,9 +410,9 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Bathroom</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng tắm</font></font></h5>
                     <label class="switch ml-auto">
-                      <input type="checkbox" id="switch-light-5">
+                      <input type="checkbox" id="switch-light-5" class="needsclick">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -420,16 +420,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">18W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">18W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->
@@ -437,11 +437,11 @@
                   <!-- Dimmer control - range slider START -->
                   <ul class="list-group borderless px-1" data-rangeslider="dimmer-light-5">
                     <li class="list-group-item">
-                      <p class="specs">Dim</p>
-                      <p class="ml-auto mb-0"><span class="range-output">100</span>%</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Độ sáng</font></font></p>
+                      <p class="ml-auto mb-0"><span class="range-output"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> %</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <input id="dimmer-light-5" type="range" min="10" max="100" value="100" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                      <input id="dimmer-light-5" type="range" min="10" max="100" value="100" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;" class="needsclick">
                     </li>
                   </ul>
                   <!-- Dimmer control - range slider END -->
@@ -456,17 +456,17 @@
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Interior Lights usage</h4>
+                    <h4 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sử dụng đèn nội thất</font></font></h4>
                   </div>
                   <hr class="my-0">
                   <div class="card-body">
                     <div class="row">
                       <div id="chart01" class="col-sm-12 col-md-8 pb-3 ct-chart">
-                        <p class="text-center text-primary">Daily</p>
-                        <ul class="ct-legend"><li class="ct-series-0" data-legend="0">Kitchen</li><li class="ct-series-1" data-legend="1">Dining room</li><li class="ct-series-2" data-legend="2">Living room</li><li class="ct-series-3" data-legend="3">Bedroom</li><li class="ct-series-4" data-legend="4">Bathroom</li></ul></div>
+                        <p class="text-center text-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hằng ngày</font></font></p>
+                        <ul class="ct-legend"><li class="ct-series-0" data-legend="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng bếp</font></font></li><li class="ct-series-1" data-legend="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng ăn</font></font></li><li class="ct-series-2" data-legend="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng khách</font></font></li><li class="ct-series-3" data-legend="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng ngủ</font></font></li><li class="ct-series-4" data-legend="4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng tắm</font></font></li></ul></div>
                       <div id="chart02" class="col-sm-12 col-md-4 pb-3 ct-chart">
-                        <p class="text-center text-primary mb-0">Overall</p>
-                      </div>
+                        <p class="text-center text-primary mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhìn chung</font></font></p>
+                     </div>
                     </div>
                   </div>
                 </div>
@@ -480,13 +480,13 @@
                 <!-- ON/OFF all interior lights  START -->
                 <div class="card">
                   <div class="card-body">
-                    <h3 class="card-title">Exterior Lights</h3>
+                    <h3 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đèn ngoại thất</font></font></h3>
                   </div>
                   <hr class="my-0">
                   <div class="card-body">
                     <div class="lights-controls" data-controls="switch-lights-ex">
-                      <button data-action="all-on" type="button" class="btn btn-primary lights-control">All <strong>ON</strong></button>
-                      <button data-action="all-off" type="button" class="btn btn-secondary lights-control">All <strong>OFF</strong></button>
+                      <button data-action="all-on" type="button" class="btn btn-primary lights-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tất cả </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BẬT</font></font></strong></button>
+                      <button data-action="all-off" type="button" class="btn btn-secondary lights-control"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tất cả </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TẮT</font></font></strong></button>
                     </div>
                   </div>
                 </div>
@@ -500,9 +500,9 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Front doors</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa trước</font></font></h5>
                     <label class="switch ml-auto">
-                      <input type="checkbox" id="switch-light-6">
+                      <input type="checkbox" id="switch-light-6" class="needsclick">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -510,16 +510,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">15W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->
@@ -533,9 +533,9 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Back doors</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa sau</font></font></h5>
                     <label class="switch ml-auto">
-                      <input type="checkbox" id="switch-light-7">
+                      <input type="checkbox" id="switch-light-7" class="needsclick">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -543,16 +543,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">15W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->
@@ -566,9 +566,9 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Pool</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bể bơi</font></font></h5>
                     <label class="switch ml-auto">
-                      <input type="checkbox" id="switch-light-8">
+                      <input type="checkbox" id="switch-light-8" class="needsclick">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -576,16 +576,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">30W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">30W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->
@@ -599,9 +599,9 @@
                       <use class="glow" fill="url(#radial-glow)" xlink:href="assets/images/icons-sprite.svg#glow"></use>
                       <use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use>
                     </svg>
-                    <h5>Garage</h5>
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhà để xe</font></font></h5>
                     <label class="switch ml-auto">
-                      <input type="checkbox" id="switch-light-9">
+                      <input type="checkbox" id="switch-light-9" class="needsclick">
                     </label>
                   </div>
                   <!-- Light switch END -->
@@ -609,16 +609,16 @@
                   <!-- Bulb details START -->
                   <ul class="list-group borderless px-1">
                     <li class="list-group-item">
-                      <p class="specs">Connection</p>
-                      <p class="ml-auto mb-0 text-success">OK</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                      <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                     </li>
                     <li class="list-group-item pt-0">
-                      <p class="specs">Power Consumption</p>
-                      <p class="ml-auto mb-0">15W</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự tiêu thụ năng lượng</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15W</font></font></p>
                     </li>
                     <li class="list-group-item pt-0 pb-4">
-                      <p class="specs">Voltage range</p>
-                      <p class="ml-auto mb-0">110-130V</p>
+                      <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phạm vi điện áp</font></font></p>
+                      <p class="ml-auto mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110-130V</font></font></p>
                     </li>
                   </ul>
                   <!-- Bulb details END -->

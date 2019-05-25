@@ -42,7 +42,7 @@
 <body ng-app="myApp" ng-controller="Home">
 
   <!-- Preloader -->
-  <div id="iot-preloader">
+  <div id="iot-preloader" style="display: none;">
     <div class="center-preloader d-flex align-items-center">
       <div class="spinners">
         <div class="spinner01"></div>
@@ -52,100 +52,100 @@
   </div>
 
   <!-- Alerts Modal -->
-  <div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="Alerts" aria-hidden="true">
+  <div class="modal modal-nobg centered fade" id="alertsModal" tabindex="-1" role="dialog" aria-label="cảnh báo" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
           <div class="alert alert-danger alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> Security SW update available
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Cập nhật SW bảo mật có sẵn
+          </font></font></div>
           <div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> New device recognized
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thiết bị mới được công nhận
+          </font></font></div>
           <div class="alert alert-warning alert-dismissible fade show border-0" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button> User profile is not complete
-          </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Gần">
+              <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
+            </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Hồ sơ người dùng chưa hoàn tất
+          </font></font></div>
         </div>
       </div>
     </div>
-    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">×</span>
+    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Gần">
+      <span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span>
     </button>
   </div>
 
   <!-- Alarm Modal -->
-  <div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="ALARM" aria-hidden="true" data-backdrop="static">
+  <div class="modal modal-danger centered fade" id="alarmModal" tabindex="-1" role="dialog" aria-label="BÁO THỨC" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
       <div class="modal-content" data-dismiss="modal">
         <div class="modal-body d-flex">
           <svg class="icon-sprite icon-2x icon-pulse"><use xlink:href="assets/images/icons-sprite.svg#alarm"></use></svg>
-          <h3 class="text-right font-weight-bold ml-auto align-self-center">MOTION DETECTED!</h3>
+          <h3 class="text-right font-weight-bold ml-auto align-self-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ĐỀ NGHỊ PHÁT HIỆN!</font></font></h3>
         </div>
       </div>
-      <p class="mt-2 text-center text-danger">Click the red area to accept/close message</p>
+      <p class="mt-2 text-center text-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhấp vào khu vực màu đỏ để chấp nhận / đóng tin nhắn</font></font></p>
     </div>
   </div>
 
   <!-- Wrapper START -->
   <div id="wrapper" class="">
     <!-- Top navbar START -->
-		<nav class="navbar navbar-expand fixed-top d-flex flex-row justify-content-start">
-			<div class="d-none d-lg-block">
-				<form>
-					<div id="menu-minifier">
-						<label>
-							<svg width="32" height="32" viewBox="0 0 32 32">
-								<rect x="2" y="8" width="4" height="3" class="menu-dots"></rect>
-								<rect x="2" y="15" width="4" height="3" class="menu-dots"></rect>
-								<rect x="2" y="22" width="4" height="3" class="menu-dots"></rect>
-								<rect x="8" y="8" width="21" height="3" class="menu-lines"></rect>
-								<rect x="8" y="15" width="21" height="3" class="menu-lines"></rect>
-								<rect x="8" y="22" width="21" height="3" class="menu-lines"></rect>
-							</svg>
-							<input id="minifier" type="checkbox"> 
-						</label>
-						<div class="info-holder info-rb">
-							<div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Side menu narrowing" data-placement="right"></div>
-						</div>
-					</div>
-				</form>
-			</div>
-			<a class="navbar-brand px-lg-3 px-1 mr-0" href="./climate.html#">SMART family</a>
-			<div class="ml-auto">
-				<div class="navbar-nav flex-row navbar-icons">
-					<div class="nav-item">
-						<button id="alerts-toggler" class="btn btn-link nav-link" title="Alerts" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
-							<svg class="icon-sprite">
-								<use xlink:href="assets/images/icons-sprite.svg#alert"></use>
-								<svg class="text-danger"><use class="icon-dot" xlink:href="assets/images/icons-sprite.svg#icon-dot"></use></svg>
-							</svg>
-						</button>
-					</div>
-					<div id="user-menu" class="nav-item dropdown">
-						<button class="btn btn-link nav-link dropdown-toggle" title="User" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#user"></use></svg>
-						</button>
-						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item" href="./profile.html">Profile</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="./login.html">Logout</a>
-						</div>
-					</div>
-					<div class="nav-item d-lg-none">
-						<button id="sidebar-toggler" type="button" class="btn btn-link nav-link" data-toggle="offcanvas">
-						  <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#menu"></use></svg>
-						</button>
-					</div>
-				</div>
-			</div>
-		</nav>
-		<!-- Top navbar END -->
+    <nav class="navbar navbar-expand fixed-top d-flex flex-row justify-content-start">
+      <div class="d-none d-lg-block">
+        <form class="ng-pristine ng-valid">
+          <div id="menu-minifier">
+            <label>
+              <svg width="32" height="32" viewBox="0 0 32 32">
+                <rect x="2" y="8" width="4" height="3" class="menu-dots"></rect>
+                <rect x="2" y="15" width="4" height="3" class="menu-dots"></rect>
+                <rect x="2" y="22" width="4" height="3" class="menu-dots"></rect>
+                <rect x="8" y="8" width="21" height="3" class="menu-lines"></rect>
+                <rect x="8" y="15" width="21" height="3" class="menu-lines"></rect>
+                <rect x="8" y="22" width="21" height="3" class="menu-lines"></rect>
+              </svg>
+              <input id="minifier" type="checkbox" class="needsclick"> 
+            </label>
+            <div class="info-holder info-rb">
+              <div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Side menu narrowing" data-placement="right"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <a class="navbar-brand px-lg-3 px-1 mr-0" href="./climate.html#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gia đình thông minh</font></font></a>
+      <div class="ml-auto">
+        <div class="navbar-nav flex-row navbar-icons">
+          <div class="nav-item">
+            <button id="alerts-toggler" class="btn btn-link nav-link" title="cảnh báo" type="button" data-alerts="3" data-toggle="modal" data-target="#alertsModal">
+              <svg class="icon-sprite">
+                <use xlink:href="assets/images/icons-sprite.svg#alert"></use>
+                <svg class="text-danger"><use class="icon-dot" xlink:href="assets/images/icons-sprite.svg#icon-dot"></use></svg>
+              </svg>
+            </button>
+          </div>
+          <div id="user-menu" class="nav-item dropdown">
+            <button class="btn btn-link nav-link dropdown-toggle" title="Người dùng" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#user"></use></svg>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="./profile.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hồ sơ</font></font></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./login.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng xuất</font></font></a>
+            </div>
+          </div>
+          <div class="nav-item d-lg-none">
+            <button id="sidebar-toggler" type="button" class="btn btn-link nav-link" data-toggle="offcanvas">
+              <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#menu"></use></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Top navbar END -->
     <!-- wrapper-offcanvas START -->
     <div class="wrapper-offcanvas">
       <!-- row-offcanvas START -->
@@ -155,33 +155,33 @@
           <ul class="nav flex-column nav-sidebar">
             <li class="nav-item">
               <a class="nav-link" href="./index.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg> Home
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#home"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Nhà
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./lights.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg> Lights
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#bulb-eco"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Đèn
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./cameras.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg> Cameras
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#camera"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Máy ảnh
+              </font></font></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./appliances.html">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg> Appliances
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#appliances"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thiết bị gia dụng
+              </font></font></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link active" href="./climate.html">
-				<svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span>Climate</span>
+        <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#thermometer"></use></svg> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhiệt độ</font></font></span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="./climate.html#">
-                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg> Settings
-              </a>
+                <svg class="icon-sprite"><use xlink:href="assets/images/icons-sprite.svg#settings"></use></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Cài đặt
+              </font></font></a>
             </li>
           </ul>
         </div>
@@ -197,29 +197,29 @@
                   <ul class="list-group borderless">
                     <li class="list-group-item align-items-center">
                       <svg class="icon-sprite icon-1x">
-                        			<use xlink:href="assets/images/icons-sprite.svg#thermometer-tiny"></use>
-                      			</svg>
-                      <h5>Living room</h5>
-                      <h5 class="ml-auto status">71.6<sup>°F</sup></h5>
+                              <use xlink:href="assets/images/icons-sprite.svg#thermometer-tiny"></use>
+                            </svg>
+                      <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng khách</font></font></h5>
+                      <h5 class="ml-auto status"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">71,6 </font></font><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">° F</font></font></sup></h5>
                     </li>
                   </ul>
                   <hr class="my-0">
                   <div class="d-flex justify-content-between" data-rangeslider="room-temp-02">
                     <ul class="list-group borderless px-1 align-items-stretch">
                       <li class="list-group-item">
-                        <p class="specs mr-auto mb-auto">Desired temperature</p>
+                        <p class="specs mr-auto mb-auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhiệt độ mong muốn</font></font></p>
                       </li>
                       <li class="list-group-item d-flex flex-column pb-4">
                         <p class="mr-auto mt-2 mb-0 display-5">
-                          <span class="room-temp-F"></span><sup>°F</sup>
+                          <span class="room-temp-F"></span><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">° F</font></font></sup>
                         </p>
                         <p class="mr-auto mt-2 mb-0 lead text-primary">
-                          <span class="room-temp-C"></span><sup>°C</sup>
+                          <span class="room-temp-C"></span><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">° C</font></font></sup>
                         </p>
                       </li>
                     </ul>
                     <div class="p-4" style="position:relative;">
-                      <input id="room-temp-02" class="room-temp" type="range" min="0" max="212" step="0.1" ng-value="CamBienMua" data-orientation="vertical" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                      <input id="room-temp-02" class="room-temp needsclick" type="range" min="0" max="212" step="0.1" ng-value="CamBienMua" data-orientation="vertical" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;" value="10">
                     </div>
                   </div>
                 </div>
@@ -231,29 +231,29 @@
                   <ul class="list-group borderless">
                     <li class="list-group-item align-items-center">
                       <svg class="icon-sprite icon-1x">
-                        			<use xlink:href="assets/images/icons-sprite.svg#thermometer-tiny"></use>
-                      			</svg>
-                      <h5>Bedroom</h5>
-                      <h5 class="ml-auto status">71.6<sup>°F</sup></h5>
+                              <use xlink:href="assets/images/icons-sprite.svg#thermometer-tiny"></use>
+                            </svg>
+                      <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng ngủ</font></font></h5>
+                      <h5 class="ml-auto status"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">71,6 </font></font><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">° F</font></font></sup></h5>
                     </li>
                   </ul>
                   <hr class="my-0">
                   <div class="d-flex justify-content-between" data-rangeslider="room-temp-01">
                     <ul class="list-group borderless px-1 align-items-stretch">
                       <li class="list-group-item">
-                        <p class="specs mr-auto mb-auto">Desired temperature</p>
+                        <p class="specs mr-auto mb-auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhiệt độ mong muốn</font></font></p>
                       </li>
                       <li class="list-group-item d-flex flex-column pb-4">
                         <p class="mr-auto mt-2 mb-0 display-5">
-                          <span class="room-temp-F">71.6</span><sup>°F</sup>
+                          <span class="room-temp-F"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">71,6 </font></font></span><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">° F</font></font></sup>
                         </p>
                         <p class="mr-auto mt-2 mb-0 lead text-primary">
-                          <span class="room-temp-C">22</span><sup>°C</sup>
+                          <span class="room-temp-C"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">22 </font></font></span><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">° C</font></font></sup>
                         </p>
                       </li>
                     </ul>
                     <div class="p-4" style="position:relative;">
-                      <input id="room-temp-01" class="room-temp" type="range" min="66.2" max="77" step="0.1" value="71.6" data-orientation="vertical" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                      <input id="room-temp-01" class="room-temp needsclick" type="range" min="66.2" max="77" step="0.1" value="71.6" data-orientation="vertical" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
                       <div class="info-holder info-lc">
                         <div data-toggle="popover-all" data-content="jQuery range slider using localStorage to remember the last status." data-original-title="Temperature control" data-placement="left" data-offset="0 -12px"></div>
                       </div>
@@ -269,12 +269,12 @@
                   <ul class="list-group borderless">
                     <li class="list-group-item align-items-center">
                       <svg class="icon-sprite icon-1x">
-                        			<use xlink:href="assets/images/icons-sprite.svg#fan"></use>
-                      			</svg>
-                      <h5>Kitchen</h5>
+                              <use xlink:href="assets/images/icons-sprite.svg#fan"></use>
+                            </svg>
+                      <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng bếp</font></font></h5>
                       <label class="switch ml-auto checked">
-                        			<input type="checkbox" id="fan-kitchen" checked="">
-                      			</label>
+                              <input type="checkbox" id="fan-kitchen" checked="" class="needsclick">
+                            </label>
                     </li>
                   </ul>
                   <!-- FAN Kitchen switch END -->
@@ -282,18 +282,18 @@
                     <hr class="my-0">
                     <ul class="list-group borderless px-1">
                       <li class="list-group-item pb-0">
-                        <p class="specs">Connection</p>
-                        <p class="ml-auto mb-0 text-success">OK</p>
+                        <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                        <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                       </li>
                     </ul>
                     <!-- Speed control - range slider START -->
                     <ul class="list-group borderless px-1" data-rangeslider="fan-01">
                       <li class="list-group-item">
-                        <p class="specs">Speed</p>
-                        <p class="ml-auto mb-0"><span class="range-output">3</span></p>
+                        <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tốc độ</font></font></p>
+                        <p class="ml-auto mb-0"><span class="range-output"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></span></p>
                       </li>
                       <li class="list-group-item pt-0 pb-4">
-                        <input id="fan-01" class="fanspeed" type="range" min="1" max="6"  step="1" ng-model="speeds[0]" ng-change="changeFanSpeed()" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                        <input id="fan-01" class="fanspeed ng-untouched ng-valid needsclick ng-not-empty ng-dirty ng-valid-parse ng-valid-min ng-valid-max ng-valid-step" type="range" min="1" max="6" step="1" ng-model="speeds[0]" ng-change="changeFanSpeed()" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
                       </li>
                     </ul>
                     <!-- Speed control - range slider END -->
@@ -308,12 +308,12 @@
                   <ul class="list-group borderless">
                     <li class="list-group-item align-items-center">
                       <svg class="icon-sprite icon-1x">
-                        			<use xlink:href="assets/images/icons-sprite.svg#fan"></use>
-                      			</svg>
-                      <h5>Bathroom</h5>
+                              <use xlink:href="assets/images/icons-sprite.svg#fan"></use>
+                            </svg>
+                      <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng tắm</font></font></h5>
                       <label class="switch ml-auto checked">
-                        			<input type="checkbox" id="fan-bathroom" checked="">
-                      			</label>
+                              <input type="checkbox" id="fan-bathroom" checked="" class="needsclick">
+                            </label>
                     </li>
                   </ul>
                   <!-- FAN Bathroom switch END -->
@@ -321,18 +321,18 @@
                     <hr class="my-0">
                     <ul class="list-group borderless px-1">
                       <li class="list-group-item pb-0">
-                        <p class="specs">Connection</p>
-                        <p class="ml-auto mb-0 text-success">OK</p>
+                        <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kết nối</font></font></p>
+                        <p class="ml-auto mb-0 text-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">được</font></font></p>
                       </li>
                     </ul>
                     <!-- Speed control - range slider START -->
                     <ul class="list-group borderless px-1" data-rangeslider="fan-02">
                       <li class="list-group-item">
-                        <p class="specs">Speed</p>
-                        <p class="ml-auto mb-0"><span class="range-output">3</span></p>
+                        <p class="specs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tốc độ</font></font></p>
+                        <p class="ml-auto mb-0"><span class="range-output"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></span></p>
                       </li>
                       <li class="list-group-item pt-0 pb-4">
-                        <input id="fan-02" class="fanspeed" type="range" min="1" max="6" value="3" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                        <input id="fan-02" class="fanspeed needsclick" type="range" min="1" max="6" value="3" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
                       </li>
                     </ul>
                     <!-- Speed control - range slider END -->
@@ -347,7 +347,7 @@
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Outdoor temperature</h4>
+                    <h4 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhiệt độ ngoài trời</font></font></h4>
                   </div>
                   <hr class="my-0">
                   <div class="card-body">
