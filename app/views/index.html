@@ -262,7 +262,7 @@
 											</svg>
 											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng bếp</font></font></h5>
 											<label class="switch ml-auto">
-												<input type="checkbox" id="switch-light-1" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[0]" class="ng-valid needsclick ng-empty ng-dirty ng-valid-parse ng-touched">
+												<input type="checkbox" id="switch-light-1" ng-true-value="1" ng-false-value="0" ng-change="updateDevice('d0', {{leds_status[0]}})" ng-model="leds_status[0]" class="ng-valid needsclick ng-empty ng-dirty ng-valid-parse ng-touched">
 											</label>
 											<div class="info-holder info-rb" style="right:40px;">
 												<div data-toggle="popover-all" data-content="Checkbox element using localStorage to remember the last status." data-original-title="Switch ON/OFF" data-container="body" data-placement="top" data-offset="0,-6"></div>
@@ -275,7 +275,7 @@
 											</svg>
 											<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phòng ăn</font></font></h5>
 											<label class="switch ml-auto">
-												<input type="checkbox" id="switch-light-2" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[1]" class="ng-pristine ng-untouched ng-valid needsclick ng-not-empty">
+												<input type="checkbox" id="switch-light-2" ng-true-value="1" ng-false-value="0" ng-change="updateDevice('d1', {{leds_status[1]}})" ng-model="leds_status[1]" class="ng-pristine ng-untouched ng-valid needsclick ng-not-empty">
 											</label>
 										</li>
 										<li class="list-group-item d-flex" data-unit="switch-light-3">

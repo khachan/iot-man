@@ -28,6 +28,7 @@ angular.module('myApp', [
 	$scope.mapSensors = {'a' : "CamBienMua"
 							,'b' : "leds_status"
 						}
+	$scope.devices = {"denBep": 0, "denPhongKhach" : 1, "denPhongAn": 2};
 
 	// $scope.init();
 	//Convert characters to number
@@ -77,12 +78,11 @@ angular.module('myApp', [
 	}
 	
 	//Cách gửi tham số 1: dùng biến toàn cục! $scope.<tên biến> là biến toàn cục
-	$scope.changeLED = function() {
-		console.log("send LED ", $scope.leds_status)
-		var json = {
-			"b": $scope.leds_status
-		}
-		mySocket.emit("LED", json)
+	$scope.updateDevice = function(device, value) {
+		var param = $scope.numberToPrintableChar($scope.deviceToIndex(device));
+		var json = {};
+		json[eval('param')] = $scope.numberToPrintableChar(value);
+		mySocket.emit("CLIENT_SEND", json)
 	}
 
 		//Cách gửi tham số 1: dùng biến toàn cục! $scope.<tên biến> là biến toàn cục
@@ -111,6 +111,8 @@ angular.module('myApp', [
 		mySocket.emit("FAN", json)
 	}
 	
+
+
 	////Khu 3 -- Nhận dữ liệu từ Arduno gửi lên (thông qua ESP8266 rồi socket server truyền tải!)
 	//các sự kiện từ Arduino gửi lên (thông qua esp8266, thông qua server)
 	mySocket.on('RAIN', function(json) {
@@ -135,6 +137,61 @@ angular.module('myApp', [
 		iot.switchSingle("switch-light-2", $scope.leds_status[1]);
 	})	
 	
+	/*New function start*/
+	//Chuyển từ device name sang server index
+	$scope.deviceToIndex = function(device) {
+		//0-13 digital port; 14-19 analog port
+		var index = 0;
+		var value = parseInt(device.substr(1));
+		var type = device.substr(0, 1);
+		var base = 1;
+		if(type == 'a'){
+			index = 14;
+			base = 6;
+		} else if('d'){
+			base = 14;
+		}
+		index = index + Math.floor(value/base) * 20 + value%base;
+		return index;
+	}
+
+	$scope.indexToDevice = function(index) {
+		//0-13 digital port; 14-19 analog port
+		var result = 0;
+		var value = Math.floor(index/20);
+		var mod = index%20;
+		var type = mod > 14 ? 'a' : 'd';
+		var base = 1;
+		if(mod > 14 ){
+			result = 'a' + (value*6 + mod%14);
+		} else{
+			result = 'd' + (value*14 + mod);
+		}
+		return result;
+	}
+	
+	$scope.numberToPrintableChar = function(number) {
+		var result = '';
+		while(number > 95){
+			result = String.fromCharCode(number%96 +  32) + result;
+			number = Math.floor(number/96);
+		}
+		result = String.fromCharCode(number%96 +  32) + result;
+		return result;
+	}
+
+
+	//Chuyển từ device name sang server index
+	$scope.printableCharToNumber= function(chars) {
+		var number = 0;
+		for(var i = 0; i < chars.length; i++){
+			number = number*96 + chars.charCodeAt(i) - 32;
+		}
+		return number;
+	}
+
+	/*New function end*/
+
 	//// Khu 4 -- Những dòng code sẽ được thực thi khi kết nối với Arduino (thông qua socket server)
 	mySocket.on('connect', function() {
 		console.log("connected")
